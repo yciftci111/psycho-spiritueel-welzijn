@@ -387,13 +387,13 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
           <div class="fld"><label for="cTopic">Onderwerp <span style="color:var(--muted);font-weight:400">(optioneel)</span></label><input id="cTopic" type="text" placeholder="Waar gaat het over?"></div>
           <div class="fld full"><label for="cMsg">Bericht <span style="color:var(--muted);font-weight:400">(optioneel)</span></label><textarea id="cMsg" placeholder="Je bericht of vraag"></textarea></div>
         </div>
+        <input type="text" id="cHoney" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="form-actions">
           <button class="btn-primary" id="cSend">Verstuur</button>
           <span class="form-msg" id="cMsgOut"></span>
         </div>
         <p class="privacy">Je gegevens worden alleen gebruikt om contact met je op te nemen over dit onderzoek en
-          worden niet gedeeld met derden. Bij verzenden opent je eigen e-mailprogramma met een ingevuld bericht,
-          dat je zelf nog kunt controleren voordat het wordt verstuurd.</p>
+          worden niet gedeeld met derden. Je bericht wordt rechtstreeks verstuurd — je hoeft geen e-mailprogramma te openen.</p>
       </div>
     </section>
 
@@ -776,22 +776,40 @@ function renderAbout(){
 }
 
 /* ---------- CONTACT FORM ---------- */
-// Vul hier het e-mailadres in waar contactverzoeken naartoe moeten:
-const CONTACT_EMAIL = "havvayildiz07@outlook.com";
+// Berichten worden direct verstuurd via FormSubmit naar onderstaand adres.
+// Wil je het e-mailadres uit de paginabron verbergen? Activeer FormSubmit één keer
+// en vervang de URL hieronder door je persoonlijke token-endpoint
+// (https://formsubmit.co/ajax/JOUW-TOKEN).
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/havvayildiz07@outlook.com";
 (function(){
   const btn=document.getElementById('cSend');if(!btn)return;
   const out=document.getElementById('cMsgOut');
   const g=id=>document.getElementById(id).value.trim();
-  btn.addEventListener('click',()=>{
+  btn.addEventListener('click',async ()=>{
     const name=g('cName'),email=g('cEmail'),phone=g('cPhone'),topic=g('cTopic'),msg=g('cMsg');
     out.className='form-msg';
+    if(g('cHoney')){return;} // spam-bot ingevuld honeypot
     if(!name){out.classList.add('err');out.textContent='Vul je naam in.';return;}
     if(!email && !phone){out.classList.add('err');out.textContent='Vul een e-mailadres of telefoonnummer in.';return;}
     if(email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){out.classList.add('err');out.textContent='Controleer je e-mailadres.';return;}
     const subject=topic?`Onderzoek psycho-spirituele processen — ${topic}`:'Interesse in onderzoek psycho-spirituele processen';
-    const body=`Naam: ${name}\nE-mail: ${email||'-'}\nTelefoon: ${phone||'-'}\n\nBericht:\n${msg||'-'}`;
-    window.location.href=`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    out.classList.add('ok');out.textContent='Je e-mailprogramma wordt geopend met een ingevuld bericht.';
+    btn.disabled=true;out.textContent='Versturen…';
+    try{
+      const res=await fetch(FORM_ENDPOINT,{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({Naam:name,'E-mail':email||'-',Telefoon:phone||'-',Onderwerp:topic||'-',Bericht:msg||'-',_subject:subject,_template:'table',_captcha:'false'})
+      });
+      const data=await res.json().catch(()=>({}));
+      if(res.ok && (data.success===undefined || String(data.success)==='true')){
+        out.classList.add('ok');
+        out.textContent='Bedankt! Je bericht is verstuurd. We nemen contact met je op.';
+        ['cName','cEmail','cPhone','cTopic','cMsg'].forEach(id=>document.getElementById(id).value='');
+      }else{throw new Error('mislukt');}
+    }catch(e){
+      out.classList.add('err');
+      out.textContent='Versturen lukte niet. Probeer het later opnieuw of mail naar havvayildiz07@outlook.com.';
+    }finally{btn.disabled=false;}
   });
 })();
 

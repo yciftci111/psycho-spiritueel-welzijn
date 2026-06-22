@@ -56,22 +56,27 @@ Elke schaal bestaat uit 10 items op een schaal van 1 (*helemaal mee oneens*) tot
 
 Een hogere score betekent telkens méér van het genoemde begrip. Alle vier de schalen zijn intern consistent (α > 0.80).
 
-## Contactformulier instellen
+## Contactformulier
 
-Het Contact-tabblad laat bezoekers hun gegevens achterlaten. Omdat GitHub Pages een statische site is (zonder server), opent het formulier bij verzenden het e-mailprogramma van de bezoeker met een vooraf ingevuld bericht. Het ontvangstadres is al ingesteld op **havvayildiz07@outlook.com**.
+Het Contact-tabblad laat bezoekers hun gegevens achterlaten. Het bericht wordt **rechtstreeks verstuurd** — er gaat geen e-mailprogramma open. Verzenden verloopt via de gratis dienst [FormSubmit](https://formsubmit.co); inzendingen komen binnen op **havvayildiz07@outlook.com**.
 
-Wil je dit wijzigen, open dan `index.html` en pas deze regel aan:
+### Eenmalig activeren (belangrijk)
+
+De allereerste keer dat het formulier wordt gebruikt, stuurt FormSubmit een **bevestigingsmail** naar havvayildiz07@outlook.com. Klik in die mail één keer op de activatielink. Daarna komt elk ingevuld formulier automatisch in de inbox terecht.
+
+Tip: vul het formulier na publicatie zelf één keer in om de bevestigingsmail te activeren.
+
+### E-mailadres wijzigen of verbergen
+
+Het ontvangstadres staat in `index.html` in deze regel:
 
 ```javascript
-const CONTACT_EMAIL = "havvayildiz07@outlook.com";
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/havvayildiz07@outlook.com";
 ```
 
-### Alternatief: zonder mailprogramma (Formspree)
+- **Ander adres:** vervang het e-mailadres in die URL.
+- **Adres verbergen uit de paginabron:** nadat FormSubmit is geactiveerd, geeft de dienst een persoonlijk token. Vervang de URL dan door `https://formsubmit.co/ajax/JOUW-TOKEN`, zodat het e-mailadres niet in de broncode staat (beter tegen spam).
 
-Wil je dat inzendingen rechtstreeks binnenkomen zonder dat de bezoeker een mailapp nodig heeft, gebruik dan een gratis formulierdienst zoals [Formspree](https://formspree.io):
-
-1. Maak een formulier aan op Formspree en kopieer je endpoint-URL (bijv. `https://formspree.io/f/abcdwxyz`).
-2. Laat het mij weten, dan pas ik de verzendknop aan zodat die naar dat endpoint stuurt — of vervang zelf de `mailto`-regel in de verzendfunctie door een `fetch()`-aanroep naar je endpoint.
 
 ## Bestanden
 
