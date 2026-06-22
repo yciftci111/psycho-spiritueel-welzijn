@@ -213,14 +213,17 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
 @media(max-width:560px){
   .kpis{grid-template-columns:1fr}
   .hero-title{font-size:20px}
-  .topbar-in{padding:11px 15px;gap:9px}
-  .brand{gap:9px}
+  .topbar-in{padding:11px 15px;gap:9px 12px;flex-wrap:wrap;row-gap:10px}
+  .spacer{display:none}
+  .brand{order:1;flex:1 1 auto;gap:9px}
   .brand svg{width:28px;height:28px}
   .brand .t1{font-size:14.5px;line-height:1.12}
   .brand .t2{display:none}
-  .nbadge{padding:6px 11px;gap:5px}
+  .btn-filters{order:2;margin-left:auto;padding:7px 12px}
+  .langsw{order:3}
+  .nbadge{order:4;margin-left:auto;padding:6px 11px;gap:5px}
   .nbadge .nbadge-txt{display:none}
-  .btn-filters{padding:7px 12px}
+  .tabs{top:108px}
   .tab{padding:13px 11px 11px;font-size:13px}
   .heat{grid-template-columns:84px repeat(4,minmax(40px,1fr))}
   .heat .hlabel{font-size:10.5px}
