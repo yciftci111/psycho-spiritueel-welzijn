@@ -795,11 +795,16 @@ const FORM_ENDPOINT = "https://formsubmit.co/ajax/havvayildiz07@outlook.com";
     const subject=topic?`Onderzoek psycho-spirituele processen — ${topic}`:'Interesse in onderzoek psycho-spirituele processen';
     btn.disabled=true;out.textContent='Versturen…';
     try{
-      const res=await fetch(FORM_ENDPOINT,{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({Naam:name,'E-mail':email||'-',Telefoon:phone||'-',Onderwerp:topic||'-',Bericht:msg||'-',_subject:subject,_template:'table',_captcha:'false'})
-      });
+      const fd=new FormData();
+      fd.append('Naam',name);
+      fd.append('E-mail',email||'-');
+      fd.append('Telefoon',phone||'-');
+      fd.append('Onderwerp',topic||'-');
+      fd.append('Bericht',msg||'-');
+      fd.append('_subject',subject);
+      fd.append('_template','table');
+      fd.append('_captcha','false');
+      const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:fd});
       const data=await res.json().catch(()=>({}));
       if(res.ok && (data.success===undefined || String(data.success)==='true')){
         out.classList.add('ok');
