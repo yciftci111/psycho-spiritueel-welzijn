@@ -1,6 +1,6 @@
-# Psycho-spiritueel welzijn — onderzoeksdashboard
+# Psycho-spirituele processen bij Nederlandse moslims — onderzoeksdashboard
 
-Interactief dashboard bij het masterscriptie-onderzoek naar het **psycho-spirituele welzijn van moslims in Nederland**. Respondenten kunnen via filters zelf zien wat er met de geanonimiseerde data gebeurt: gemiddelden, antwoordverdelingen, betrouwbaarheid, correlaties en groepsvergelijkingen — allemaal live herberekend over de groep die je selecteert.
+Interactief dashboard dat de **resultaten van de enquête** toont bij het masterscriptie-onderzoek naar psycho-spirituele processen bij Nederlandse moslims. Bezoekers kunnen via filters zelf zien wat er met de geanonimiseerde data gebeurt: gemiddelden, antwoordverdelingen, betrouwbaarheid, correlaties en groepsvergelijkingen — allemaal live herberekend over de groep die je selecteert.
 
 **N = 353 geldige respondenten** · geen persoonsgegevens of open antwoorden zichtbaar.
 
@@ -8,8 +8,8 @@ Interactief dashboard bij het masterscriptie-onderzoek naar het **psycho-spiritu
 
 | | |
 |---|---|
-| **Titel** | Religieuze coping, spiritueel welzijn en schadelijke gedachten bij Nederlandse moslims |
-| **Ondertitel** | Een kwantitatieve analyse binnen het psycho-spirituele perspectief van Ibn Qayyim al-Jawziyya |
+| **Titel** | Psycho-spirituele processen bij Nederlandse moslims |
+| **Ondertitel** | Een kwantitatief onderzoek naar hart-gebaseerde cognitieve ontregeling, spirituele coping en spirituele hartbalans vanuit het perspectief van Ibn Qayyim al-Jawziyya |
 | **Auteur** | Havva Yıldız — BA Islamitische Theologie |
 | **Opleiding** | HBO Postinitiële Master Islamitische Geestelijke Verzorging |
 | **Instelling** | Islamic University of Applied Sciences Rotterdam (IUASR) |
@@ -31,7 +31,7 @@ Het is één enkel `index.html`-bestand dat zich automatisch aanpast aan de sche
 
 ## Inhoud van het dashboard
 
-Zes tabbladen, die allemaal direct reageren op de filters (geslacht, leeftijd, opleiding, etniciteit, religiositeit, klachten en meer):
+Bovenaan elke pagina staat duidelijk dat dit de resultaten van de enquête zijn. Zeven tabbladen, die allemaal direct reageren op de filters (geslacht, leeftijd, opleiding, etniciteit, religiositeit, klachten en meer):
 
 | Tab | Wat je ziet |
 |-----|-------------|
@@ -40,7 +40,8 @@ Zes tabbladen, die allemaal direct reageren op de filters (geslacht, leeftijd, o
 | **Schalen** | Antwoordverdeling per stelling op de 5-punts Likertschaal, met het gemiddelde per item |
 | **Correlaties** | Pearson-correlaties tussen de vier schalen, als heatmap |
 | **Vergelijken** | Gemiddelde score per groep, met 95%-betrouwbaarheidsinterval — kies zelf kenmerk en schaal |
-| **Over** | Verantwoording, methode en uitleg van de begrippen |
+| **Contact** | Formulier waarmee geïnteresseerden hun naam en e-mailadres of telefoonnummer kunnen achterlaten |
+| **Over** | Verantwoording, methode, colofon en uitleg van de begrippen |
 
 ## De vier schalen
 
@@ -54,6 +55,23 @@ Elke schaal bestaat uit 10 items op een schaal van 1 (*helemaal mee oneens*) tot
 | **SHB** | Spirituele Hartbalans | Innerlijke rust, zuiverheid en verbondenheid | 0.89 |
 
 Een hogere score betekent telkens méér van het genoemde begrip. Alle vier de schalen zijn intern consistent (α > 0.80).
+
+## Contactformulier instellen
+
+Het Contact-tabblad laat bezoekers hun gegevens achterlaten. Omdat GitHub Pages een statische site is (zonder server), opent het formulier bij verzenden het e-mailprogramma van de bezoeker met een vooraf ingevuld bericht. **Je moet daarvoor één keer het ontvangstadres invullen.**
+
+Open `index.html`, zoek deze regel en vul je eigen e-mailadres in:
+
+```javascript
+const CONTACT_EMAIL = "VERVANG-DIT@e-mailadres.nl";
+```
+
+### Alternatief: zonder mailprogramma (Formspree)
+
+Wil je dat inzendingen rechtstreeks binnenkomen zonder dat de bezoeker een mailapp nodig heeft, gebruik dan een gratis formulierdienst zoals [Formspree](https://formspree.io):
+
+1. Maak een formulier aan op Formspree en kopieer je endpoint-URL (bijv. `https://formspree.io/f/abcdwxyz`).
+2. Laat het mij weten, dan pas ik de verzendknop aan zodat die naar dat endpoint stuurt — of vervang zelf de `mailto`-regel in de verzendfunctie door een `fetch()`-aanroep naar je endpoint.
 
 ## Bestanden
 
@@ -77,7 +95,7 @@ Via de terminal:
 ```bash
 git init
 git add index.html chart.umd.min.js README.md
-git commit -m "Onderzoeksdashboard psycho-spiritueel welzijn"
+git commit -m "Onderzoeksdashboard psycho-spirituele processen"
 git branch -M main
 git remote add origin https://github.com/<gebruikersnaam>/psycho-spiritueel-welzijn.git
 git push -u origin main
@@ -98,10 +116,12 @@ git push -u origin main
 
 ## Privacy
 
-Het dashboard toont uitsluitend geaggregeerde, geanonimiseerde resultaten. Er zijn geen herleidbare persoonsgegevens of vrije tekstantwoorden in opgenomen.
+Het dashboard toont uitsluitend geaggregeerde, geanonimiseerde resultaten. Er zijn geen herleidbare persoonsgegevens of vrije tekstantwoorden in opgenomen. Gegevens die bezoekers via het contactformulier achterlaten, worden alleen gebruikt om contact op te nemen over dit onderzoek.
 
 ## Verantwoording
 
-Dit dashboard hoort bij de masterthesis van **Havva Yıldız** (Islamic University of Applied Sciences Rotterdam, 2025–2026). Suggestie voor verwijzing:
+Dit dashboard hoort bij de masterthesis van **Havva Yıldız** (Islamic University of Applied Sciences Rotterdam, 2025–2026). Het dashboard is gegenereerd door **drs. ir. Yusuf Çiftçi** op basis van de geanonimiseerde enquêteresultaten.
 
-> Yıldız, H. (2026). *Religieuze coping, spiritueel welzijn en schadelijke gedachten bij Nederlandse moslims: Een kwantitatieve analyse binnen het psycho-spirituele perspectief van Ibn Qayyim al-Jawziyya* [Masterthesis, Islamic University of Applied Sciences Rotterdam].
+Suggestie voor verwijzing:
+
+> Yıldız, H. (2026). *Psycho-spirituele processen bij Nederlandse moslims: Een kwantitatief onderzoek naar hart-gebaseerde cognitieve ontregeling, spirituele coping en spirituele hartbalans vanuit het perspectief van Ibn Qayyim al-Jawziyya* [Masterthesis, Islamic University of Applied Sciences Rotterdam].

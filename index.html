@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Religieuze coping, spiritueel welzijn en schadelijke gedachten bij Nederlandse moslims — Masterthesis Havva Yıldız</title>
+<title>Psycho-spirituele processen bij Nederlandse moslims — Resultaten van de enquête</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -174,6 +174,28 @@ table.gt tr.small td{color:var(--muted)}
 footer{max-width:1240px;margin:0 auto;padding:0 22px 50px;color:var(--muted);font-size:12px}
 footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
 
+/* result banner */
+.resultbar{background:linear-gradient(0deg,rgba(168,123,46,.06),rgba(168,123,46,.06)),var(--card);border-bottom:1px solid var(--line)}
+.resultbar-in{max-width:1240px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;gap:10px;color:var(--ink-soft);font-size:13px}
+.resultbar-in svg{color:var(--gold);flex:none}
+.resultbar-in b{color:var(--ink);font-weight:600}
+
+/* contact form */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px}
+.form-grid .full{grid-column:1/-1}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld label{font-size:12px;font-weight:600;color:var(--ink-soft)}
+.fld input,.fld textarea{font:inherit;font-size:14px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);width:100%}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--gold-soft);box-shadow:0 0 0 3px rgba(168,123,46,.12)}
+.fld textarea{resize:vertical;min-height:84px}
+.form-actions{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.btn-primary{font:inherit;cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:999px;padding:11px 22px;font-size:14px;font-weight:500;transition:.15s}
+.btn-primary:hover{background:#0f2422}
+.form-msg{font-size:12.5px}
+.form-msg.err{color:var(--hco)}
+.form-msg.ok{color:var(--psc)}
+.privacy{font-size:12px;color:var(--muted);margin-top:14px;max-width:62ch}
+
 /* mobile */
 .scrim{display:none}
 @media(max-width:920px){
@@ -207,6 +229,7 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
   .card{padding:18px 16px}
   .field select{min-width:0;width:100%}
   .controls{flex-direction:column;align-items:stretch}
+  .form-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
@@ -224,7 +247,7 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
         </g>
       </svg>
       <div>
-        <div class="t1">Psycho-spiritueel welzijn</div>
+        <div class="t1">Psycho-spirituele processen</div>
         <div class="t2">Masterthesis · Havva Yıldız · IUASR</div>
       </div>
     </div>
@@ -240,6 +263,13 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
 <nav class="tabs">
   <div class="tabs-in" id="tabBar"></div>
 </nav>
+
+<div class="resultbar">
+  <div class="resultbar-in">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="9" width="3" height="8"/></svg>
+    <span>Dit dashboard toont de <b>resultaten van de enquête</b> over psycho-spirituele processen bij Nederlandse moslims.</span>
+  </div>
+</div>
 
 <div class="wrap">
   <!-- FILTERS -->
@@ -258,9 +288,9 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
     <!-- OVERZICHT -->
     <section class="view active" data-view="overzicht">
       <div class="card hero">
-        <div class="eyebrow">Masterthesis · Islamic University of Applied Sciences Rotterdam</div>
-        <h2 class="hero-title">Religieuze coping, spiritueel welzijn en schadelijke gedachten bij Nederlandse moslims</h2>
-        <p class="hero-sub">Een kwantitatieve analyse binnen het psycho-spirituele perspectief van Ibn Qayyim al-Jawziyya</p>
+        <div class="eyebrow">Resultaten van de enquête · Masterthesis IUASR</div>
+        <h2 class="hero-title">Psycho-spirituele processen bij Nederlandse moslims</h2>
+        <p class="hero-sub">Een kwantitatief onderzoek naar hart-gebaseerde cognitieve ontregeling, spirituele coping en spirituele hartbalans vanuit het perspectief van Ibn Qayyim al-Jawziyya</p>
         <div class="hero-meta">
           <span><b>Havva Yıldız</b> — BA Islamitische Theologie</span>
           <span>HBO Postinitiële Master Islamitische Geestelijke Verzorging</span>
@@ -343,12 +373,36 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
       </div>
     </section>
 
+    <!-- CONTACT -->
+    <section class="view" data-view="contact">
+      <div class="card">
+        <div class="eyebrow">Blijf betrokken</div>
+        <h2>Interesse in het onderzoek?</h2>
+        <p class="sub">Wil je op de hoogte blijven of meer weten over dit onderzoek? Laat je naam achter met een
+          e-mailadres of telefoonnummer, dan nemen we contact met je op.</p>
+        <div class="form-grid">
+          <div class="fld"><label for="cName">Naam</label><input id="cName" type="text" autocomplete="name" placeholder="Je naam"></div>
+          <div class="fld"><label for="cEmail">E-mailadres</label><input id="cEmail" type="email" autocomplete="email" placeholder="naam@voorbeeld.nl"></div>
+          <div class="fld"><label for="cPhone">Telefoonnummer <span style="color:var(--muted);font-weight:400">(optioneel)</span></label><input id="cPhone" type="tel" autocomplete="tel" placeholder="06 12345678"></div>
+          <div class="fld"><label for="cTopic">Onderwerp <span style="color:var(--muted);font-weight:400">(optioneel)</span></label><input id="cTopic" type="text" placeholder="Waar gaat het over?"></div>
+          <div class="fld full"><label for="cMsg">Bericht <span style="color:var(--muted);font-weight:400">(optioneel)</span></label><textarea id="cMsg" placeholder="Je bericht of vraag"></textarea></div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-primary" id="cSend">Verstuur</button>
+          <span class="form-msg" id="cMsgOut"></span>
+        </div>
+        <p class="privacy">Je gegevens worden alleen gebruikt om contact met je op te nemen over dit onderzoek en
+          worden niet gedeeld met derden. Bij verzenden opent je eigen e-mailprogramma met een ingevuld bericht,
+          dat je zelf nog kunt controleren voordat het wordt verstuurd.</p>
+      </div>
+    </section>
+
   </main>
 </div>
 
 <footer>
   <hr>
-  <div>Dashboard gegenereerd op basis van de geanonimiseerde enquêteresultaten. Schaalscores zijn gemiddelden van tien items op een 5-punts Likertschaal (1 = helemaal mee oneens, 5 = helemaal mee eens). Geen persoonsgegevens of open antwoorden worden weergegeven.</div>
+  <div>Dashboard gegenereerd door <b style="color:var(--ink-soft);font-weight:600">drs. ir. Yusuf Çiftçi</b> op basis van de geanonimiseerde enquêteresultaten. Schaalscores zijn gemiddelden van tien items op een 5-punts Likertschaal (1 = helemaal mee oneens, 5 = helemaal mee eens). Geen persoonsgegevens of open antwoorden worden weergegeven.</div>
   <div style="margin-top:10px">Masterthesis <b style="color:var(--ink-soft);font-weight:600">Havva Yıldız</b> · HBO Postinitiële Master Islamitische Geestelijke Verzorging · Islamic University of Applied Sciences Rotterdam · 2025–2026.</div>
 </footer>
 
@@ -439,7 +493,7 @@ document.getElementById('scrim').onclick=()=>body.classList.remove('filters-open
 
 /* ---------- tabs ---------- */
 const TABS=[['overzicht','Overzicht'],['steekproef','Steekproef'],['schalen','Schalen'],
-  ['correlaties','Correlaties'],['vergelijken','Vergelijken'],['over','Over']];
+  ['correlaties','Correlaties'],['vergelijken','Vergelijken'],['contact','Contact'],['over','Over']];
 let activeTab='overzicht';
 const tabBar=document.getElementById('tabBar');
 TABS.forEach(([k,lab])=>{
@@ -674,8 +728,8 @@ function renderAbout(){
   const el=document.getElementById('aboutBody');
   el.innerHTML=`
   <div class="colofon">
-    <div><span class="ck">Titel</span><span class="cv">Religieuze coping, spiritueel welzijn en schadelijke gedachten bij Nederlandse moslims</span></div>
-    <div><span class="ck">Ondertitel</span><span class="cv">Een kwantitatieve analyse binnen het psycho-spirituele perspectief van Ibn Qayyim al-Jawziyya</span></div>
+    <div><span class="ck">Titel</span><span class="cv">Psycho-spirituele processen bij Nederlandse moslims</span></div>
+    <div><span class="ck">Ondertitel</span><span class="cv">Een kwantitatief onderzoek naar hart-gebaseerde cognitieve ontregeling, spirituele coping en spirituele hartbalans vanuit het perspectief van Ibn Qayyim al-Jawziyya</span></div>
     <div><span class="ck">Auteur</span><span class="cv">Havva Yıldız — BA Islamitische Theologie</span></div>
     <div><span class="ck">Opleiding</span><span class="cv">HBO Postinitiële Master Islamitische Geestelijke Verzorging</span></div>
     <div><span class="ck">Instelling</span><span class="cv">Islamic University of Applied Sciences Rotterdam (IUASR)</span></div>
@@ -684,8 +738,9 @@ function renderAbout(){
     <div><span class="ck">Studiejaar</span><span class="cv">2025–2026</span></div>
   </div>
   <h3>Suggestie voor verwijzing</h3>
-  <div class="cite">Yıldız, H. (2026). <i>Religieuze coping, spiritueel welzijn en schadelijke gedachten bij Nederlandse moslims:
-  Een kwantitatieve analyse binnen het psycho-spirituele perspectief van Ibn Qayyim al-Jawziyya</i>
+  <div class="cite">Yıldız, H. (2026). <i>Psycho-spirituele processen bij Nederlandse moslims:
+  Een kwantitatief onderzoek naar hart-gebaseerde cognitieve ontregeling, spirituele coping en spirituele hartbalans
+  vanuit het perspectief van Ibn Qayyim al-Jawziyya</i>
   [Masterthesis, Islamic University of Applied Sciences Rotterdam].</div>
 
   <p style="margin-top:18px">Dit dashboard maakt de resultaten van het scriptieonderzoek inzichtelijk voor de
@@ -719,6 +774,26 @@ function renderAbout(){
     <li>De cijfers zijn beschrijvend; voor toetsende conclusies verwijzen we naar de scriptie zelf.</li>
   </ul>`;
 }
+
+/* ---------- CONTACT FORM ---------- */
+// Vul hier het e-mailadres in waar contactverzoeken naartoe moeten:
+const CONTACT_EMAIL = "VERVANG-DIT@e-mailadres.nl";
+(function(){
+  const btn=document.getElementById('cSend');if(!btn)return;
+  const out=document.getElementById('cMsgOut');
+  const g=id=>document.getElementById(id).value.trim();
+  btn.addEventListener('click',()=>{
+    const name=g('cName'),email=g('cEmail'),phone=g('cPhone'),topic=g('cTopic'),msg=g('cMsg');
+    out.className='form-msg';
+    if(!name){out.classList.add('err');out.textContent='Vul je naam in.';return;}
+    if(!email && !phone){out.classList.add('err');out.textContent='Vul een e-mailadres of telefoonnummer in.';return;}
+    if(email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){out.classList.add('err');out.textContent='Controleer je e-mailadres.';return;}
+    const subject=topic?`Onderzoek psycho-spirituele processen — ${topic}`:'Interesse in onderzoek psycho-spirituele processen';
+    const body=`Naam: ${name}\nE-mail: ${email||'-'}\nTelefoon: ${phone||'-'}\n\nBericht:\n${msg||'-'}`;
+    window.location.href=`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    out.classList.add('ok');out.textContent='Je e-mailprogramma wordt geopend met een ingevuld bericht.';
+  });
+})();
 
 /* init */
 render();
