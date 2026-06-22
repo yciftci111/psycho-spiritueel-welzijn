@@ -58,12 +58,12 @@ Een hogere score betekent telkens méér van het genoemde begrip. Alle vier de s
 
 ## Contactformulier instellen
 
-Het Contact-tabblad laat bezoekers hun gegevens achterlaten. Omdat GitHub Pages een statische site is (zonder server), opent het formulier bij verzenden het e-mailprogramma van de bezoeker met een vooraf ingevuld bericht. **Je moet daarvoor één keer het ontvangstadres invullen.**
+Het Contact-tabblad laat bezoekers hun gegevens achterlaten. Omdat GitHub Pages een statische site is (zonder server), opent het formulier bij verzenden het e-mailprogramma van de bezoeker met een vooraf ingevuld bericht. Het ontvangstadres is al ingesteld op **havvayildiz07@outlook.com**.
 
-Open `index.html`, zoek deze regel en vul je eigen e-mailadres in:
+Wil je dit wijzigen, open dan `index.html` en pas deze regel aan:
 
 ```javascript
-const CONTACT_EMAIL = "VERVANG-DIT@e-mailadres.nl";
+const CONTACT_EMAIL = "havvayildiz07@outlook.com";
 ```
 
 ### Alternatief: zonder mailprogramma (Formspree)
