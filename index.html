@@ -232,6 +232,10 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
   .form-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+.langsw{display:flex;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px;box-shadow:var(--shadow)}
+.langsw button{border:0;background:transparent;font:inherit;font-size:11.5px;font-weight:600;color:var(--muted);padding:5px 10px;border-radius:999px;cursor:pointer;letter-spacing:.04em}
+.langsw button.active{background:var(--gold,#A87B2E);color:#fff}
+@media(max-width:520px){.langsw button{padding:4px 8px;font-size:11px}}
 </style>
 </head>
 <body>
@@ -247,15 +251,16 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
         </g>
       </svg>
       <div>
-        <div class="t1">Psycho-spirituele processen</div>
-        <div class="t2">Masterthesis · Havva Yıldız · IUASR</div>
+        <div class="t1" data-i18n="brand_t1">Psycho-spirituele processen</div>
+        <div class="t2" data-i18n="brand_t2">Masterthesis · Havva Yıldız · IUASR</div>
       </div>
     </div>
     <div class="spacer"></div>
-    <div class="nbadge"><b id="nCur">—</b><span class="nbadge-sep">/</span><b id="nTot">—</b><span class="nbadge-txt">respondenten</span></div>
+    <div class="langsw" id="langSw"><button type="button" data-lang="nl" class="active">NL</button><button type="button" data-lang="tr">TR</button><button type="button" data-lang="en">EN</button></div>
+    <div class="nbadge"><b id="nCur">—</b><span class="nbadge-sep">/</span><b id="nTot">—</b><span class="nbadge-txt" data-i18n="nbadge_txt">respondenten</span></div>
     <button class="btn btn-filters" id="openFilters">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
-      Filters
+      <span data-i18n="filters_btn">Filters</span>
     </button>
   </div>
 </header>
@@ -267,7 +272,7 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
 <div class="resultbar">
   <div class="resultbar-in">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="9" width="3" height="8"/></svg>
-    <span>Dit dashboard toont de <b>resultaten van de enquête</b> over psycho-spirituele processen bij Nederlandse moslims.</span>
+    <span data-i18n-html="banner">Dit dashboard toont de <b>resultaten van de enquête</b> over psycho-spirituele processen bij Nederlandse moslims.</span>
   </div>
 </div>
 
@@ -275,8 +280,8 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
   <!-- FILTERS -->
   <aside class="panel" id="panel">
     <div class="panel-head">
-      <h3>Filters</h3>
-      <button class="reset" id="resetBtn">Alles wissen</button>
+      <h3 data-i18n="filters_title">Filters</h3>
+      <button class="reset" id="resetBtn" data-i18n="reset">Alles wissen</button>
     </div>
     <div id="filterGroups"></div>
   </aside>
@@ -288,15 +293,15 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
     <!-- OVERZICHT -->
     <section class="view active" data-view="overzicht">
       <div class="card hero">
-        <div class="eyebrow">Resultaten van de enquête · Masterthesis IUASR</div>
-        <h2 class="hero-title">Psycho-spirituele processen bij Nederlandse moslims</h2>
-        <p class="hero-sub">Een kwantitatief onderzoek naar hart-gebaseerde cognitieve ontregeling, spirituele coping en spirituele hartbalans vanuit het perspectief van Ibn Qayyim al-Jawziyya</p>
+        <div class="eyebrow" data-i18n="hero_eyebrow">Resultaten van de enquête · Masterthesis IUASR</div>
+        <h2 class="hero-title" data-i18n="hero_title">Psycho-spirituele processen bij Nederlandse moslims</h2>
+        <p class="hero-sub" data-i18n="hero_sub">Een kwantitatief onderzoek naar hart-gebaseerde cognitieve ontregeling, spirituele coping en spirituele hartbalans vanuit het perspectief van Ibn Qayyim al-Jawziyya</p>
         <div class="hero-meta">
-          <span><b>Havva Yıldız</b> — BA Islamitische Theologie</span>
-          <span>HBO Postinitiële Master Islamitische Geestelijke Verzorging</span>
-          <span>Studiejaar 2025–2026</span>
+          <span data-i18n-html="hero_meta1"><b>Havva Yıldız</b> — BA Islamitische Theologie</span>
+          <span data-i18n-html="hero_meta2">HBO Postinitiële Master Islamitische Geestelijke Verzorging</span>
+          <span data-i18n-html="hero_meta3">Studiejaar 2025–2026</span>
         </div>
-        <p class="lead" style="margin-top:16px">
+        <p class="lead" style="margin-top:16px" data-i18n="hero_lead">
           Dit dashboard maakt de resultaten van het onderzoek inzichtelijk voor de respondenten zelf. De vragenlijst
           meet psycho-spiritueel welzijn aan de hand van vier samenhangende schalen. Hieronder zie je de gemiddelde
           scores van de geselecteerde groep; pas de filters aan om te zien hoe de antwoorden verschillen per achtergrond.
@@ -304,8 +309,8 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
       </div>
       <div class="kpis" id="kpiCards"></div>
       <div class="card">
-        <div class="eyebrow">Steekproef in het kort</div>
-        <h2 style="margin-bottom:14px">Wie heeft er meegedaan</h2>
+        <div class="eyebrow" data-i18n="qs_eyebrow">Steekproef in het kort</div>
+        <h2 style="margin-bottom:14px" data-i18n="qs_title">Wie heeft er meegedaan</h2>
         <div class="statrow" id="quickStats"></div>
         <div class="note" style="margin-top:18px" id="liveNote"></div>
       </div>
@@ -313,9 +318,9 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
 
     <!-- STEEKPROEF -->
     <section class="view" data-view="steekproef">
-      <div class="section-title"><span class="eyebrow">Demografie</span></div>
-      <div class="card"><h2>Achtergrond van de respondenten</h2>
-        <p class="sub">Verdeling per kenmerk binnen de huidige selectie. Reageert direct op de filters.</p>
+      <div class="section-title"><span class="eyebrow" data-i18n="sample_eyebrow">Demografie</span></div>
+      <div class="card"><h2 data-i18n="sample_title">Achtergrond van de respondenten</h2>
+        <p class="sub" data-i18n="sample_sub">Verdeling per kenmerk binnen de huidige selectie. Reageert direct op de filters.</p>
         <div class="chartgrid" id="demoCharts"></div>
       </div>
     </section>
@@ -323,8 +328,8 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
     <!-- SCHALEN -->
     <section class="view" data-view="schalen">
       <div class="card">
-        <h2>De vier schalen, vraag voor vraag</h2>
-        <p class="sub">Per stelling zie je hoe de geselecteerde respondenten antwoordden op de 5-punts Likertschaal.</p>
+        <h2 data-i18n="scales_title">De vier schalen, vraag voor vraag</h2>
+        <p class="sub" data-i18n="scales_sub">Per stelling zie je hoe de geselecteerde respondenten antwoordden op de 5-punts Likertschaal.</p>
         <div class="likert-key" id="likertKey"></div>
       </div>
       <div id="scaleBlocks" class="grid"></div>
@@ -333,13 +338,13 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
     <!-- CORRELATIES -->
     <section class="view" data-view="correlaties">
       <div class="card">
-        <h2>Samenhang tussen de schalen</h2>
-        <p class="sub">Pearson-correlaties tussen de gemiddelde schaalscores. Berekend over de huidige selectie.</p>
+        <h2 data-i18n="corr_title">Samenhang tussen de schalen</h2>
+        <p class="sub" data-i18n="corr_sub">Pearson-correlaties tussen de gemiddelde schaalscores. Berekend over de huidige selectie.</p>
         <div id="heatmap"></div>
         <div class="legend-grad">
-          <span>−1 negatief</span><span class="bar"></span><span>+1 positief</span>
+          <span data-i18n="corr_neg">−1 negatief</span><span class="bar"></span><span data-i18n="corr_pos">+1 positief</span>
         </div>
-        <div class="note" style="margin-top:18px">
+        <div class="note" style="margin-top:18px" data-i18n="corr_note">
           Een correlatie beschrijft samenhang, geen oorzaak. Waarden rond 0 betekenen weinig verband;
           dichter bij −1 of +1 betekent een sterker verband.
         </div>
@@ -349,15 +354,15 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
     <!-- VERGELIJKEN -->
     <section class="view" data-view="vergelijken">
       <div class="card">
-        <h2>Groepen vergelijken</h2>
-        <p class="sub">Kies een achtergrondkenmerk en een schaal om de gemiddelde scores per groep te vergelijken.</p>
+        <h2 data-i18n="cmp_title">Groepen vergelijken</h2>
+        <p class="sub" data-i18n="cmp_sub">Kies een achtergrondkenmerk en een schaal om de gemiddelde scores per groep te vergelijken.</p>
         <div class="controls">
-          <div class="field"><label for="cmpDemo">Achtergrondkenmerk</label><select id="cmpDemo"></select></div>
-          <div class="field"><label for="cmpScale">Schaal</label><select id="cmpScale"></select></div>
+          <div class="field"><label for="cmpDemo" data-i18n="cmp_demo_label">Achtergrondkenmerk</label><select id="cmpDemo"></select></div>
+          <div class="field"><label for="cmpScale" data-i18n="cmp_scale_label">Schaal</label><select id="cmpScale"></select></div>
         </div>
         <div class="chart-wrap" style="height:360px;margin-top:6px"><canvas id="cmpChart"></canvas></div>
         <div id="cmpTableWrap"></div>
-        <div class="note" style="margin-top:16px">
+        <div class="note" style="margin-top:16px" data-i18n="cmp_note">
           De zwarte lijntjes tonen het 95%-betrouwbaarheidsinterval. Groepen met minder dan 10 respondenten
           zijn gemarkeerd, omdat hun gemiddelde minder betrouwbaar is.
         </div>
@@ -367,8 +372,8 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
     <!-- OVER -->
     <section class="view about" data-view="over">
       <div class="card">
-        <div class="eyebrow">Verantwoording</div>
-        <h2>Over de data en de methode</h2>
+        <div class="eyebrow" data-i18n="about_eyebrow">Verantwoording</div>
+        <h2 data-i18n="about_title">Over de data en de methode</h2>
         <div id="aboutBody"></div>
       </div>
     </section>
@@ -376,23 +381,23 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
     <!-- CONTACT -->
     <section class="view" data-view="contact">
       <div class="card">
-        <div class="eyebrow">Blijf betrokken</div>
-        <h2>Interesse in het onderzoek?</h2>
-        <p class="sub">Wil je op de hoogte blijven of meer weten over dit onderzoek? Laat je naam achter met een
+        <div class="eyebrow" data-i18n="contact_eyebrow">Blijf betrokken</div>
+        <h2 data-i18n="contact_title">Interesse in het onderzoek?</h2>
+        <p class="sub" data-i18n="contact_sub">Wil je op de hoogte blijven of meer weten over dit onderzoek? Laat je naam achter met een
           e-mailadres of telefoonnummer, dan nemen we contact met je op.</p>
         <div class="form-grid">
-          <div class="fld"><label for="cName">Naam</label><input id="cName" type="text" autocomplete="name" placeholder="Je naam"></div>
-          <div class="fld"><label for="cEmail">E-mailadres</label><input id="cEmail" type="email" autocomplete="email" placeholder="naam@voorbeeld.nl"></div>
-          <div class="fld"><label for="cPhone">Telefoonnummer <span style="color:var(--muted);font-weight:400">(optioneel)</span></label><input id="cPhone" type="tel" autocomplete="tel" placeholder="06 12345678"></div>
-          <div class="fld"><label for="cTopic">Onderwerp <span style="color:var(--muted);font-weight:400">(optioneel)</span></label><input id="cTopic" type="text" placeholder="Waar gaat het over?"></div>
-          <div class="fld full"><label for="cMsg">Bericht <span style="color:var(--muted);font-weight:400">(optioneel)</span></label><textarea id="cMsg" placeholder="Je bericht of vraag"></textarea></div>
+          <div class="fld"><label for="cName" data-i18n="f_name">Naam</label><input id="cName" type="text" autocomplete="name" placeholder="Je naam" data-i18n-ph="ph_name"></div>
+          <div class="fld"><label for="cEmail" data-i18n="f_email">E-mailadres</label><input id="cEmail" type="email" autocomplete="email" placeholder="naam@voorbeeld.nl" data-i18n-ph="ph_email"></div>
+          <div class="fld"><label for="cPhone"><span data-i18n="f_phone">Telefoonnummer</span> <span style="color:var(--muted);font-weight:400" data-i18n="optional">(optioneel)</span></label><input id="cPhone" type="tel" autocomplete="tel" placeholder="06 12345678"></div>
+          <div class="fld"><label for="cTopic"><span data-i18n="f_topic">Onderwerp</span> <span style="color:var(--muted);font-weight:400" data-i18n="optional">(optioneel)</span></label><input id="cTopic" type="text" placeholder="Waar gaat het over?" data-i18n-ph="ph_topic"></div>
+          <div class="fld full"><label for="cMsg"><span data-i18n="f_msg">Bericht</span> <span style="color:var(--muted);font-weight:400" data-i18n="optional">(optioneel)</span></label><textarea id="cMsg" placeholder="Je bericht of vraag" data-i18n-ph="ph_msg"></textarea></div>
         </div>
         <input type="text" id="cHoney" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="form-actions">
-          <button class="btn-primary" id="cSend">Verstuur</button>
+          <button class="btn-primary" id="cSend" data-i18n="send">Verstuur</button>
           <span class="form-msg" id="cMsgOut"></span>
         </div>
-        <p class="privacy">Je gegevens worden alleen gebruikt om contact met je op te nemen over dit onderzoek en
+        <p class="privacy" data-i18n="privacy">Je gegevens worden alleen gebruikt om contact met je op te nemen over dit onderzoek en
           worden niet gedeeld met derden. Je bericht wordt rechtstreeks verstuurd — je hoeft geen e-mailprogramma te openen.</p>
       </div>
     </section>
@@ -402,8 +407,8 @@ footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
 
 <footer>
   <hr>
-  <div>Dashboard gegenereerd door <b style="color:var(--ink-soft);font-weight:600">drs. ir. Yusuf Çiftçi</b> op basis van de geanonimiseerde enquêteresultaten. Schaalscores zijn gemiddelden van tien items op een 5-punts Likertschaal (1 = helemaal mee oneens, 5 = helemaal mee eens). Geen persoonsgegevens of open antwoorden worden weergegeven.</div>
-  <div style="margin-top:10px">Masterthesis <b style="color:var(--ink-soft);font-weight:600">Havva Yıldız</b> · HBO Postinitiële Master Islamitische Geestelijke Verzorging · Islamic University of Applied Sciences Rotterdam · 2025–2026.</div>
+  <div data-i18n-html="foot1">Dashboard gegenereerd door <b style="color:var(--ink-soft);font-weight:600">drs. ir. Yusuf Çiftçi</b> op basis van de geanonimiseerde enquêteresultaten. Schaalscores zijn gemiddelden van tien items op een 5-punts Likertschaal (1 = helemaal mee oneens, 5 = helemaal mee eens). Geen persoonsgegevens of open antwoorden worden weergegeven.</div>
+  <div style="margin-top:10px" data-i18n-html="foot2">Masterthesis <b style="color:var(--ink-soft);font-weight:600">Havva Yıldız</b> · HBO Postinitiële Master Islamitische Geestelijke Verzorging · Islamic University of Applied Sciences Rotterdam · 2025–2026.</div>
 </footer>
 
 <script>
@@ -421,6 +426,32 @@ const INK='#16302E', MUT='#6B736F', LINE='#DCD8CC';
 Chart.defaults.font.family="'IBM Plex Sans',sans-serif";
 Chart.defaults.font.size=12;
 Chart.defaults.color=MUT;
+
+/* ---------- i18n ---------- */
+const I18N={"ui": {"brand_t1": {"nl": "Psycho-spirituele processen", "tr": "Psiko-spiritüel süreçler", "en": "Psycho-spiritual processes"}, "brand_t2": {"nl": "Masterthesis · Havva Yıldız · IUASR", "tr": "Yüksek lisans tezi · Havva Yıldız · IUASR", "en": "Master's thesis · Havva Yıldız · IUASR"}, "nbadge_txt": {"nl": "respondenten", "tr": "katılımcı", "en": "respondents"}, "filters_btn": {"nl": "Filters", "tr": "Filtreler", "en": "Filters"}, "banner": {"nl": "Dit dashboard toont de <b>resultaten van de enquête</b> over psycho-spirituele processen bij Nederlandse moslims.", "tr": "Bu panel, Hollandalı Müslümanlardaki psiko-spiritüel süreçlere ilişkin <b>anket sonuçlarını</b> göstermektedir.", "en": "This dashboard shows the <b>survey results</b> on psycho-spiritual processes among Dutch Muslims."}, "filters_title": {"nl": "Filters", "tr": "Filtreler", "en": "Filters"}, "reset": {"nl": "Alles wissen", "tr": "Tümünü temizle", "en": "Clear all"}, "chosen": {"nl": "gekozen", "tr": "seçildi", "en": "selected"}, "tab_overzicht": {"nl": "Overzicht", "tr": "Genel bakış", "en": "Overview"}, "tab_steekproef": {"nl": "Steekproef", "tr": "Örneklem", "en": "Sample"}, "tab_schalen": {"nl": "Schalen", "tr": "Ölçekler", "en": "Scales"}, "tab_correlaties": {"nl": "Correlaties", "tr": "Korelasyonlar", "en": "Correlations"}, "tab_vergelijken": {"nl": "Vergelijken", "tr": "Karşılaştırma", "en": "Compare"}, "tab_contact": {"nl": "Contact", "tr": "İletişim", "en": "Contact"}, "tab_over": {"nl": "Over", "tr": "Hakkında", "en": "About"}, "hero_eyebrow": {"nl": "Resultaten van de enquête · Masterthesis IUASR", "tr": "Anket sonuçları · Yüksek lisans tezi IUASR", "en": "Survey results · Master's thesis IUASR"}, "hero_title": {"nl": "Psycho-spirituele processen bij Nederlandse moslims", "tr": "Hollandalı Müslümanlarda psiko-spiritüel süreçler", "en": "Psycho-spiritual processes among Dutch Muslims"}, "hero_sub": {"nl": "Een kwantitatief onderzoek naar hart-gebaseerde cognitieve ontregeling, spirituele coping en spirituele hartbalans vanuit het perspectief van Ibn Qayyim al-Jawziyya", "tr": "İbn Kayyim el-Cevziyye'nin perspektifinden kalp temelli bilişsel düzensizlik, spiritüel başa çıkma ve spiritüel kalp dengesi üzerine nicel bir araştırma", "en": "A quantitative study of heart-based cognitive disruption, spiritual coping and spiritual heart balance from the perspective of Ibn Qayyim al-Jawziyya"}, "hero_meta1": {"nl": "<b>Havva Yıldız</b> — BA Islamitische Theologie", "tr": "<b>Havva Yıldız</b> — İslami İlahiyat (BA)", "en": "<b>Havva Yıldız</b> — BA Islamic Theology"}, "hero_meta2": {"nl": "HBO Postinitiële Master Islamitische Geestelijke Verzorging", "tr": "HBO Lisansüstü İslami Manevi Danışmanlık Yüksek Lisansı", "en": "Postgraduate Master in Islamic Spiritual Care (HBO)"}, "hero_meta3": {"nl": "Studiejaar 2025–2026", "tr": "Akademik yıl 2025–2026", "en": "Academic year 2025–2026"}, "hero_lead": {"nl": "Dit dashboard maakt de resultaten van het onderzoek inzichtelijk voor de respondenten zelf. De vragenlijst meet psycho-spirituele processen aan de hand van vier samenhangende schalen. Hieronder zie je de gemiddelde scores van de geselecteerde groep; pas de filters aan om te zien hoe de antwoorden verschillen per achtergrond.", "tr": "Bu panel, araştırmanın sonuçlarını katılımcıların kendileri için anlaşılır kılar. Anket, psiko-spiritüel süreçleri birbiriyle ilişkili dört ölçek aracılığıyla ölçer. Aşağıda seçili grubun ortalama puanlarını görürsünüz; cevapların özelliklere göre nasıl değiştiğini görmek için filtreleri ayarlayın.", "en": "This dashboard makes the research findings accessible to the respondents themselves. The questionnaire measures psycho-spiritual processes through four interrelated scales. Below you see the average scores of the selected group; adjust the filters to see how the answers differ by background."}, "reliability": {"nl": "betrouwbaarheid", "tr": "güvenilirlik", "en": "reliability"}, "qs_eyebrow": {"nl": "Steekproef in het kort", "tr": "Kısaca örneklem", "en": "The sample at a glance"}, "qs_title": {"nl": "Wie heeft er meegedaan", "tr": "Kimler katıldı", "en": "Who took part"}, "stat_resp": {"nl": "Respondenten", "tr": "Katılımcı", "en": "Respondents"}, "stat_female": {"nl": "Vrouw", "tr": "Kadın", "en": "Female"}, "stat_daily": {"nl": "Dagelijkse praktijk", "tr": "Günlük pratik", "en": "Daily practice"}, "stat_complaints": {"nl": "Ooit psych. klachten", "tr": "Psik. şikâyet (hiç)", "en": "Ever had mental health issues"}, "stat_agegroup": {"nl": "Grootste leeftijdsgroep", "tr": "En büyük yaş grubu", "en": "Largest age group"}, "stat_origin": {"nl": "Grootste herkomst", "tr": "En büyük köken", "en": "Largest background"}, "livenote_all": {"nl": "Je bekijkt alle {n} geldige respondenten. Eén respondent gaf geen toestemming en is buiten beschouwing gelaten.", "tr": "Geçerli {n} katılımcının tamamını görüyorsunuz. Bir katılımcı onay vermediği için kapsam dışı bırakıldı.", "en": "You are viewing all {n} valid respondents. One respondent did not give consent and was excluded."}, "livenote_sel": {"nl": "Je bekijkt een selectie van {n} van de {N} respondenten. Wis de filters om de volledige groep te zien.", "tr": "{N} katılımcıdan {n} tanesini görüyorsunuz. Tüm grubu görmek için filtreleri temizleyin.", "en": "You are viewing a selection of {n} of {N} respondents. Clear the filters to see the full group."}, "sample_title": {"nl": "Achtergrond van de respondenten", "tr": "Katılımcıların özellikleri", "en": "Background of the respondents"}, "sample_sub": {"nl": "Verdeling per kenmerk binnen de huidige selectie. Reageert direct op de filters.", "tr": "Mevcut seçim içindeki her özelliğe göre dağılım. Filtrelere anında tepki verir.", "en": "Distribution per characteristic within the current selection. Responds instantly to the filters."}, "scales_title": {"nl": "De vier schalen, vraag voor vraag", "tr": "Dört ölçek, madde madde", "en": "The four scales, item by item"}, "scales_sub": {"nl": "Per stelling zie je hoe de geselecteerde respondenten antwoordden op de 5-punts Likertschaal.", "tr": "Her ifade için, seçili katılımcıların 5'li Likert ölçeğinde nasıl yanıt verdiğini görürsünüz.", "en": "For each statement you see how the selected respondents answered on the 5-point Likert scale."}, "avg": {"nl": "gemiddeld", "tr": "ortalama", "en": "average"}, "avg_short": {"nl": "gem.", "tr": "ort.", "en": "avg."}, "show_items": {"nl": "Toon de volledige stellingen", "tr": "Tüm ifadeleri göster", "en": "Show the full statements"}, "item_word": {"nl": "Item", "tr": "Madde", "en": "Item"}, "corr_title": {"nl": "Samenhang tussen de schalen", "tr": "Ölçekler arası ilişki", "en": "Relationships between the scales"}, "corr_sub": {"nl": "Pearson-correlaties tussen de gemiddelde schaalscores. Berekend over de huidige selectie.", "tr": "Ortalama ölçek puanları arasındaki Pearson korelasyonları. Mevcut seçim üzerinden hesaplanır.", "en": "Pearson correlations between the average scale scores. Computed over the current selection."}, "corr_neg": {"nl": "−1 negatief", "tr": "−1 negatif", "en": "−1 negative"}, "corr_pos": {"nl": "+1 positief", "tr": "+1 pozitif", "en": "+1 positive"}, "corr_note": {"nl": "Een correlatie beschrijft samenhang, geen oorzaak. Waarden rond 0 betekenen weinig verband; dichter bij −1 of +1 betekent een sterker verband.", "tr": "Korelasyon, neden-sonuç değil ilişki anlamına gelir. 0'a yakın değerler zayıf ilişki; −1 veya +1'e yakınlık daha güçlü ilişki demektir.", "en": "A correlation describes association, not causation. Values near 0 mean little relationship; closer to −1 or +1 means a stronger relationship."}, "cmp_title": {"nl": "Groepen vergelijken", "tr": "Grupları karşılaştır", "en": "Compare groups"}, "cmp_sub": {"nl": "Kies een achtergrondkenmerk en een schaal om de gemiddelde scores per groep te vergelijken.", "tr": "Grupların ortalama puanlarını karşılaştırmak için bir özellik ve bir ölçek seçin.", "en": "Choose a background characteristic and a scale to compare the average scores per group."}, "cmp_demo_label": {"nl": "Achtergrondkenmerk", "tr": "Özellik", "en": "Background characteristic"}, "cmp_scale_label": {"nl": "Schaal", "tr": "Ölçek", "en": "Scale"}, "cmp_th_group": {"nl": "Groep", "tr": "Grup", "en": "Group"}, "cmp_th_mean": {"nl": "Gemiddelde", "tr": "Ortalama", "en": "Mean"}, "cmp_th_ci": {"nl": "95%-BI", "tr": "%95 GA", "en": "95% CI"}, "cmp_note": {"nl": "De zwarte lijntjes tonen het 95%-betrouwbaarheidsinterval. Groepen met minder dan 10 respondenten zijn gemarkeerd, omdat hun gemiddelde minder betrouwbaar is.", "tr": "Siyah çizgiler %95 güven aralığını gösterir. 10'dan az katılımcısı olan gruplar, ortalamaları daha az güvenilir olduğu için işaretlenmiştir.", "en": "The black lines show the 95% confidence interval. Groups with fewer than 10 respondents are marked, as their average is less reliable."}, "cmp_small": {"nl": "* groep met minder dan 10 respondenten", "tr": "* 10'dan az katılımcılı grup", "en": "* group with fewer than 10 respondents"}, "contact_eyebrow": {"nl": "Blijf betrokken", "tr": "Bağlantıda kalın", "en": "Stay involved"}, "contact_title": {"nl": "Interesse in het onderzoek?", "tr": "Araştırmayla ilgileniyor musunuz?", "en": "Interested in the research?"}, "contact_sub": {"nl": "Wil je op de hoogte blijven of meer weten over dit onderzoek? Laat je naam achter met een e-mailadres of telefoonnummer, dan nemen we contact met je op.", "tr": "Bu araştırmadan haberdar olmak veya daha fazla bilgi almak ister misiniz? Adınızı bir e-posta adresi veya telefon numarasıyla bırakın, sizinle iletişime geçelim.", "en": "Would you like to stay informed or learn more about this research? Leave your name with an email address or phone number and we'll get in touch."}, "f_name": {"nl": "Naam", "tr": "Ad", "en": "Name"}, "f_email": {"nl": "E-mailadres", "tr": "E-posta adresi", "en": "Email address"}, "f_phone": {"nl": "Telefoonnummer", "tr": "Telefon numarası", "en": "Phone number"}, "f_topic": {"nl": "Onderwerp", "tr": "Konu", "en": "Subject"}, "f_msg": {"nl": "Bericht", "tr": "Mesaj", "en": "Message"}, "optional": {"nl": "(optioneel)", "tr": "(isteğe bağlı)", "en": "(optional)"}, "ph_name": {"nl": "Je naam", "tr": "Adınız", "en": "Your name"}, "ph_email": {"nl": "naam@voorbeeld.nl", "tr": "ad@ornek.com", "en": "name@example.com"}, "ph_topic": {"nl": "Waar gaat het over?", "tr": "Konu nedir?", "en": "What is it about?"}, "ph_msg": {"nl": "Je bericht of vraag", "tr": "Mesajınız veya sorunuz", "en": "Your message or question"}, "send": {"nl": "Verstuur", "tr": "Gönder", "en": "Send"}, "privacy": {"nl": "Je gegevens worden alleen gebruikt om contact met je op te nemen over dit onderzoek en worden niet gedeeld met derden. Je bericht wordt rechtstreeks verstuurd — je hoeft geen e-mailprogramma te openen.", "tr": "Bilgileriniz yalnızca bu araştırma hakkında sizinle iletişime geçmek için kullanılır ve üçüncü taraflarla paylaşılmaz. Mesajınız doğrudan gönderilir — bir e-posta programı açmanıza gerek yoktur.", "en": "Your details are used only to contact you about this research and are not shared with third parties. Your message is sent directly — no email program needs to open."}, "msg_name": {"nl": "Vul je naam in.", "tr": "Lütfen adınızı girin.", "en": "Please enter your name."}, "msg_contact": {"nl": "Vul een e-mailadres of telefoonnummer in.", "tr": "Lütfen bir e-posta adresi veya telefon numarası girin.", "en": "Please enter an email address or phone number."}, "msg_emailbad": {"nl": "Controleer je e-mailadres.", "tr": "E-posta adresinizi kontrol edin.", "en": "Please check your email address."}, "msg_sending": {"nl": "Versturen…", "tr": "Gönderiliyor…", "en": "Sending…"}, "msg_ok": {"nl": "Bedankt! Je bericht is verstuurd. We nemen contact met je op.", "tr": "Teşekkürler! Mesajınız gönderildi. Sizinle iletişime geçeceğiz.", "en": "Thank you! Your message has been sent. We'll get in touch."}, "msg_fail": {"nl": "Versturen lukte niet. Probeer het later opnieuw of mail naar havvayildiz07@outlook.com.", "tr": "Gönderilemedi. Lütfen daha sonra tekrar deneyin veya havvayildiz07@outlook.com adresine e-posta gönderin.", "en": "Sending failed. Please try again later or email havvayildiz07@outlook.com."}, "subj_base": {"nl": "Onderzoek psycho-spirituele processen", "tr": "Araştırma: psiko-spiritüel süreçler", "en": "Research: psycho-spiritual processes"}, "subj_default": {"nl": "Interesse in onderzoek psycho-spirituele processen", "tr": "Psiko-spiritüel süreçler araştırmasına ilgi", "en": "Interest in psycho-spiritual processes research"}, "about_eyebrow": {"nl": "Verantwoording", "tr": "Açıklama", "en": "About this research"}, "about_title": {"nl": "Over de data en de methode", "tr": "Veriler ve yöntem hakkında", "en": "About the data and method"}, "c_titel": {"nl": "Titel", "tr": "Başlık", "en": "Title"}, "c_ondertitel": {"nl": "Ondertitel", "tr": "Alt başlık", "en": "Subtitle"}, "c_auteur": {"nl": "Auteur", "tr": "Yazar", "en": "Author"}, "c_opleiding": {"nl": "Opleiding", "tr": "Program", "en": "Programme"}, "c_instelling": {"nl": "Instelling", "tr": "Kurum", "en": "Institution"}, "c_graad": {"nl": "Graad", "tr": "Derece", "en": "Degree"}, "c_studentnr": {"nl": "Studentnummer", "tr": "Öğrenci numarası", "en": "Student number"}, "c_studiejaar": {"nl": "Studiejaar", "tr": "Akademik yıl", "en": "Academic year"}, "v_auteur": {"nl": "Havva Yıldız — BA Islamitische Theologie", "tr": "Havva Yıldız — İslami İlahiyat (BA)", "en": "Havva Yıldız — BA Islamic Theology"}, "v_opleiding": {"nl": "HBO Postinitiële Master Islamitische Geestelijke Verzorging", "tr": "HBO Lisansüstü İslami Manevi Danışmanlık Yüksek Lisansı", "en": "Postgraduate Master in Islamic Spiritual Care (HBO)"}, "v_graad": {"nl": "Ter verkrijging van de graad doctorandus (drs.)", "tr": "Doktorandus (drs.) derecesini elde etmek için", "en": "In fulfilment of the degree of doctorandus (drs.)"}, "cite_head": {"nl": "Suggestie voor verwijzing", "tr": "Atıf önerisi", "en": "Suggested citation"}, "ab_intro": {"nl": "Dit dashboard maakt de resultaten van het scriptieonderzoek inzichtelijk voor de respondenten zelf. Alle weergaven zijn gebaseerd op geanonimiseerde antwoorden; er worden geen persoonsgegevens of open tekstantwoorden getoond.", "tr": "Bu panel, tez araştırmasının sonuçlarını katılımcıların kendileri için anlaşılır kılar. Tüm görünümler anonimleştirilmiş yanıtlara dayanır; hiçbir kişisel veri veya açık metin yanıtı gösterilmez.", "en": "This dashboard makes the thesis findings accessible to the respondents themselves. All views are based on anonymised answers; no personal data or open-text answers are shown."}, "ab_h_sample": {"nl": "De steekproef", "tr": "Örneklem", "en": "The sample"}, "ab_p_sample": {"nl": "In totaal vulden {raw} mensen de vragenlijst in. Eén respondent gaf geen toestemming voor deelname en is verwijderd, waardoor <b>{n} geldige respondenten</b> overblijven, allemaal met volledige antwoorden.", "tr": "Toplam {raw} kişi anketi doldurdu. Bir katılımcı katılım için onay vermediğinden çıkarıldı; geriye tamamı eksiksiz yanıt veren <b>{n} geçerli katılımcı</b> kaldı.", "en": "In total {raw} people completed the questionnaire. One respondent did not consent to participate and was removed, leaving <b>{n} valid respondents</b>, all with complete answers."}, "ab_h_scales": {"nl": "De vier schalen", "tr": "Dört ölçek", "en": "The four scales"}, "ab_h_scores": {"nl": "Hoe de scores zijn berekend", "tr": "Puanlar nasıl hesaplandı", "en": "How the scores are calculated"}, "ab_p_scores": {"nl": "Elke stelling is beantwoord op een 5-punts Likertschaal: 1 = helemaal mee oneens tot en met 5 = helemaal mee eens. Een schaalscore is het gemiddelde van de tien bijbehorende items en ligt dus altijd tussen 1 en 5. Bij filteren en vergelijken worden alle gemiddelden, spreidingen en correlaties opnieuw berekend over precies de geselecteerde groep.", "tr": "Her ifade 5'li Likert ölçeğinde yanıtlandı: 1 = kesinlikle katılmıyorum'dan 5 = kesinlikle katılıyorum'a kadar. Bir ölçek puanı, ilgili on maddenin ortalamasıdır ve her zaman 1 ile 5 arasındadır. Filtreleme ve karşılaştırmada tüm ortalamalar, dağılımlar ve korelasyonlar tam olarak seçili grup için yeniden hesaplanır.", "en": "Each statement was answered on a 5-point Likert scale: 1 = strongly disagree to 5 = strongly agree. A scale score is the average of its ten items and therefore always lies between 1 and 5. When filtering and comparing, all averages, spreads and correlations are recomputed over exactly the selected group."}, "ab_h_rel": {"nl": "Betrouwbaarheid (Cronbach's α)", "tr": "Güvenilirlik (Cronbach α)", "en": "Reliability (Cronbach's α)"}, "ab_p_rel": {"nl": "Cronbach's alpha geeft aan hoe consistent de tien items van een schaal samen één begrip meten. Een waarde boven 0,80 geldt als goed. Alle vier de schalen liggen hierboven, wat betekent dat de schalen intern consistent zijn.", "tr": "Cronbach alfa, bir ölçeğin on maddesinin tek bir kavramı ne kadar tutarlı ölçtüğünü gösterir. 0,80'in üzerindeki bir değer iyi kabul edilir. Dört ölçeğin tamamı bunun üzerindedir; bu da ölçeklerin iç tutarlılığa sahip olduğu anlamına gelir.", "en": "Cronbach's alpha indicates how consistently the ten items of a scale measure a single construct. A value above 0.80 is considered good. All four scales exceed this, meaning the scales are internally consistent."}, "ab_h_imp": {"nl": "Belangrijk om te weten", "tr": "Bilinmesi gerekenler", "en": "Important to know"}, "ab_li1": {"nl": "Correlaties beschrijven samenhang, geen oorzaak-gevolg.", "tr": "Korelasyonlar ilişkiyi tanımlar, neden-sonuç değil.", "en": "Correlations describe association, not cause and effect."}, "ab_li2": {"nl": "Gemiddelden van kleine groepen (minder dan 10 respondenten) zijn minder stabiel en in de vergelijking gemarkeerd.", "tr": "Küçük grupların (10'dan az katılımcı) ortalamaları daha az kararlıdır ve karşılaştırmada işaretlenmiştir.", "en": "Averages of small groups (fewer than 10 respondents) are less stable and are marked in the comparison."}, "ab_li3": {"nl": "De cijfers zijn beschrijvend; voor toetsende conclusies verwijzen we naar de scriptie zelf.", "tr": "Sayılar betimleyicidir; çıkarımsal sonuçlar için tezin kendisine başvurun.", "en": "The figures are descriptive; for inferential conclusions we refer to the thesis itself."}, "foot1": {"nl": "Dashboard gegenereerd door <b>drs. ir. Yusuf Çiftçi</b> op basis van de geanonimiseerde enquêteresultaten. Schaalscores zijn gemiddelden van tien items op een 5-punts Likertschaal (1 = helemaal mee oneens, 5 = helemaal mee eens). Geen persoonsgegevens of open antwoorden worden weergegeven.", "tr": "Panel, anonimleştirilmiş anket sonuçlarına dayanarak <b>drs. ir. Yusuf Çiftçi</b> tarafından oluşturulmuştur. Ölçek puanları, 5'li Likert ölçeğindeki on maddenin ortalamasıdır (1 = kesinlikle katılmıyorum, 5 = kesinlikle katılıyorum). Hiçbir kişisel veri veya açık yanıt gösterilmez.", "en": "Dashboard generated by <b>drs. ir. Yusuf Çiftçi</b> from the anonymised survey results. Scale scores are averages of ten items on a 5-point Likert scale (1 = strongly disagree, 5 = strongly agree). No personal data or open answers are shown."}, "foot2": {"nl": "Masterthesis <b>Havva Yıldız</b> · HBO Postinitiële Master Islamitische Geestelijke Verzorging · Islamic University of Applied Sciences Rotterdam · 2025–2026.", "tr": "Yüksek lisans tezi <b>Havva Yıldız</b> · HBO İslami Manevi Danışmanlık Yüksek Lisansı · Islamic University of Applied Sciences Rotterdam · 2025–2026.", "en": "Master's thesis <b>Havva Yıldız</b> · Postgraduate Master in Islamic Spiritual Care · Islamic University of Applied Sciences Rotterdam · 2025–2026."}, "sample_eyebrow": {"nl": "Demografie", "tr": "Demografi", "en": "Demographics"}, "cite_tail": {"nl": "[Masterthesis, Islamic University of Applied Sciences Rotterdam].", "tr": "[Yüksek lisans tezi, Islamic University of Applied Sciences Rotterdam].", "en": "[Master's thesis, Islamic University of Applied Sciences Rotterdam]."}, "doc_title": {"nl": "Psycho-spirituele processen bij Nederlandse moslims — Resultaten van de enquête", "tr": "Hollandalı Müslümanlarda psiko-spiritüel süreçler — Anket sonuçları", "en": "Psycho-spiritual processes among Dutch Muslims — Survey results"}}, "scaleName": {"HCO": {"nl": "Hart-gebaseerde Cognitieve Ontregeling", "tr": "Kalp Temelli Bilişsel Düzensizlik", "en": "Heart-based Cognitive Disruption"}, "PSC": {"nl": "Positieve Spirituele Coping", "tr": "Olumlu Spiritüel Başa Çıkma", "en": "Positive Spiritual Coping"}, "NSC": {"nl": "Negatieve Spirituele Coping", "tr": "Olumsuz Spiritüel Başa Çıkma", "en": "Negative Spiritual Coping"}, "SHB": {"nl": "Spirituele Hartbalans", "tr": "Spiritüel Kalp Dengesi", "en": "Spiritual Heart Balance"}}, "scaleDesc": {"HCO": {"nl": "Mate van verstorende gedachten, mentale afwezigheid en innerlijke onrust. Hogere score = meer ontregeling.", "tr": "Rahatsız edici düşünceler, zihinsel dalgınlık ve içsel huzursuzluk düzeyi. Yüksek puan = daha fazla düzensizlik.", "en": "Degree of intrusive thoughts, mental absence and inner restlessness. Higher score = more disruption."}, "PSC": {"nl": "Geloofsgerichte manieren om met stress en tegenslag om te gaan. Hogere score = meer positieve coping.", "tr": "Stres ve zorluklarla başa çıkmanın inanç odaklı yolları. Yüksek puan = daha fazla olumlu başa çıkma.", "en": "Faith-oriented ways of coping with stress and adversity. Higher score = more positive coping."}, "NSC": {"nl": "Innerlijke twijfel, controleverlies en spanning in de geloofsbeleving. Hogere score = meer negatieve coping.", "tr": "İnanç deneyiminde içsel şüphe, kontrol kaybı ve gerginlik. Yüksek puan = daha fazla olumsuz başa çıkma.", "en": "Inner doubt, loss of control and tension in religious experience. Higher score = more negative coping."}, "SHB": {"nl": "Innerlijke rust, zuiverheid en verbondenheid. Hogere score = meer hartbalans.", "tr": "İçsel huzur, saflık ve bağlılık. Yüksek puan = daha fazla kalp dengesi.", "en": "Inner peace, purity and connectedness. Higher score = more heart balance."}}, "likert": [{"nl": "Helemaal mee oneens", "tr": "Kesinlikle katılmıyorum", "en": "Strongly disagree"}, {"nl": "Mee oneens", "tr": "Katılmıyorum", "en": "Disagree"}, {"nl": "Neutraal", "tr": "Kararsızım", "en": "Neutral"}, {"nl": "Mee eens", "tr": "Katılıyorum", "en": "Agree"}, {"nl": "Helemaal mee eens", "tr": "Kesinlikle katılıyorum", "en": "Strongly agree"}], "demoLabel": {"geslacht": {"nl": "Geslacht", "tr": "Cinsiyet", "en": "Gender"}, "leeftijd": {"nl": "Leeftijd", "tr": "Yaş", "en": "Age"}, "opleiding": {"nl": "Opleidingsniveau", "tr": "Eğitim düzeyi", "en": "Education level"}, "etniciteit": {"nl": "Etnische achtergrond", "tr": "Etnik köken", "en": "Ethnic background"}, "woont_nl": {"nl": "Woont in Nederland", "tr": "Hollanda'da yaşıyor", "en": "Lives in the Netherlands"}, "betrokkenheid": {"nl": "Religieuze betrokkenheid", "tr": "Dini bağlılık", "en": "Religious involvement"}, "praktijk": {"nl": "Frequentie religieuze praktijk", "tr": "Dini pratik sıklığı", "en": "Frequency of religious practice"}, "belang": {"nl": "Belang van religie", "tr": "Dinin önemi", "en": "Importance of religion"}, "klachten": {"nl": "Ooit psychische klachten", "tr": "Psikolojik şikâyet (hiç)", "en": "Ever had mental health issues"}, "gv_gebruikt": {"nl": "Islam. geestelijke verzorging gebruikt", "tr": "İslami manevi danışmanlık kullanıldı", "en": "Used Islamic spiritual care"}, "gv_helpt": {"nl": "Vertrouwen in geestelijke verzorging", "tr": "Manevi danışmanlığa güven", "en": "Trust in spiritual care"}, "hulpbron": {"nl": "Voorkeur hulpbron", "tr": "Tercih edilen destek kaynağı", "en": "Preferred source of help"}}, "cat": {"Man": {"nl": "Man", "tr": "Erkek", "en": "Male"}, "Vrouw": {"nl": "Vrouw", "tr": "Kadın", "en": "Female"}, "18–24": {"nl": "18–24", "tr": "18–24", "en": "18–24"}, "25–34": {"nl": "25–34", "tr": "25–34", "en": "25–34"}, "35–44": {"nl": "35–44", "tr": "35–44", "en": "35–44"}, "45–54": {"nl": "45–54", "tr": "45–54", "en": "45–54"}, "55+": {"nl": "55+", "tr": "55+", "en": "55+"}, "Basisonderwijs": {"nl": "Basisonderwijs", "tr": "İlköğretim", "en": "Primary education"}, "Geen opleiding afgerond": {"nl": "Geen opleiding afgerond", "tr": "Eğitim tamamlanmadı", "en": "No education completed"}, "HAVO": {"nl": "HAVO", "tr": "HAVO", "en": "HAVO"}, "VWO": {"nl": "VWO", "tr": "VWO", "en": "VWO"}, "VMBO": {"nl": "VMBO", "tr": "VMBO", "en": "VMBO"}, "MAVO": {"nl": "MAVO", "tr": "MAVO", "en": "MAVO"}, "MBO": {"nl": "MBO", "tr": "MBO", "en": "MBO"}, "HBO": {"nl": "HBO", "tr": "HBO", "en": "HBO"}, "WO": {"nl": "WO", "tr": "WO", "en": "WO"}, "Ja": {"nl": "Ja", "tr": "Evet", "en": "Yes"}, "Nee": {"nl": "Nee", "tr": "Hayır", "en": "No"}, "Wil ik liever niet zeggen": {"nl": "Wil ik liever niet zeggen", "tr": "Söylemek istemiyorum", "en": "Prefer not to say"}, "Afghaans": {"nl": "Afghaans", "tr": "Afgan", "en": "Afghan"}, "Anders": {"nl": "Anders", "tr": "Diğer", "en": "Other"}, "Marokkaans": {"nl": "Marokkaans", "tr": "Faslı", "en": "Moroccan"}, "Nederlands": {"nl": "Nederlands", "tr": "Hollandalı", "en": "Dutch"}, "Somalisch": {"nl": "Somalisch", "tr": "Somalili", "en": "Somali"}, "Surinaams": {"nl": "Surinaams", "tr": "Surinamlı", "en": "Surinamese"}, "Syrisch": {"nl": "Syrisch", "tr": "Suriyeli", "en": "Syrian"}, "Turks": {"nl": "Turks", "tr": "Türk", "en": "Turkish"}, "Niet praktiserend": {"nl": "Niet praktiserend", "tr": "Pratik etmiyor", "en": "Not practising"}, "Licht praktiserend": {"nl": "Licht praktiserend", "tr": "Az pratik ediyor", "en": "Lightly practising"}, "Gemiddeld praktiserend": {"nl": "Gemiddeld praktiserend", "tr": "Orta düzeyde pratik ediyor", "en": "Moderately practising"}, "Sterk praktiserend": {"nl": "Sterk praktiserend", "tr": "Yoğun pratik ediyor", "en": "Strongly practising"}, "Dagelijks": {"nl": "Dagelijks", "tr": "Her gün", "en": "Daily"}, "Enkele keren per week": {"nl": "Enkele keren per week", "tr": "Haftada birkaç kez", "en": "A few times a week"}, "Enkele keren per maand": {"nl": "Enkele keren per maand", "tr": "Ayda birkaç kez", "en": "A few times a month"}, "Zelden / nooit": {"nl": "Zelden / nooit", "tr": "Nadiren / hiç", "en": "Rarely / never"}, "Helemaal niet belangrijk": {"nl": "Helemaal niet belangrijk", "tr": "Hiç önemli değil", "en": "Not at all important"}, "Neutraal": {"nl": "Neutraal", "tr": "Nötr", "en": "Neutral"}, "Belangrijk": {"nl": "Belangrijk", "tr": "Önemli", "en": "Important"}, "Zeer belangrijk": {"nl": "Zeer belangrijk", "tr": "Çok önemli", "en": "Very important"}, "Helemaal niet": {"nl": "Helemaal niet", "tr": "Hiç", "en": "Not at all"}, "In beperkte mate": {"nl": "In beperkte mate", "tr": "Sınırlı ölçüde", "en": "To a limited extent"}, "In redelijke mate": {"nl": "In redelijke mate", "tr": "Makul ölçüde", "en": "To a reasonable extent"}, "In hoge mate": {"nl": "In hoge mate", "tr": "Yüksek ölçüde", "en": "To a high extent"}, "Combinatie van bovenstaande": {"nl": "Combinatie van bovenstaande", "tr": "Yukarıdakilerin birleşimi", "en": "A combination of the above"}, "Familie / vrienden": {"nl": "Familie / vrienden", "tr": "Aile / arkadaşlar", "en": "Family / friends"}, "Imam / islamitische geestelijke verzorger": {"nl": "Imam / islamitische geestelijke verzorger", "tr": "İmam / İslami manevi danışman", "en": "Imam / Islamic spiritual caregiver"}, "Niemand": {"nl": "Niemand", "tr": "Hiç kimse", "en": "No one"}, "Psycholoog / hulpverlener": {"nl": "Psycholoog / hulpverlener", "tr": "Psikolog / uzman", "en": "Psychologist / professional"}}, "item": {"HCO": [{"nl": "Ik ervaar vaak storende gedachten die moeilijk te stoppen zijn.", "tr": "Sık sık durdurması zor, rahatsız edici düşünceler yaşıyorum.", "en": "I often experience disturbing thoughts that are hard to stop."}, {"nl": "Mijn gedachten blijven zich herhalen, zelfs als ik dat niet wil.", "tr": "İstemesem bile düşüncelerim tekrar edip duruyor.", "en": "My thoughts keep repeating, even when I don't want them to."}, {"nl": "Ik voel me overspoeld door mijn gedachten.", "tr": "Düşüncelerimin beni boğduğunu hissediyorum.", "en": "I feel overwhelmed by my thoughts."}, {"nl": "Ik voel me vaak geestelijk afwezig of onoplettend.", "tr": "Sık sık zihinsel olarak dalgın veya dikkatsiz hissediyorum.", "en": "I often feel mentally absent or inattentive."}, {"nl": "Ik ben regelmatig niet bewust van mijn innerlijke toestand.", "tr": "İç durumumun çoğu zaman farkında olmuyorum.", "en": "I am regularly unaware of my inner state."}, {"nl": "Ik merk dat ik snel afgeleid ben van wat echt belangrijk is.", "tr": "Gerçekten önemli olandan kolayca uzaklaştığımı fark ediyorum.", "en": "I notice that I am easily distracted from what really matters."}, {"nl": "Ik twijfel regelmatig over wat waar of juist is.", "tr": "Neyin doğru ya da gerçek olduğundan sık sık şüphe ederim.", "en": "I regularly doubt what is true or right."}, {"nl": "Ik vind het moeilijk om duidelijke overtuigingen te behouden.", "tr": "Net inançlara sahip olmayı zor buluyorum.", "en": "I find it hard to maintain clear convictions."}, {"nl": "Mijn gedachten worden vaak beïnvloed door mijn verlangens.", "tr": "Düşüncelerim çoğu zaman arzularımdan etkilenir.", "en": "My thoughts are often influenced by my desires."}, {"nl": "Ik merk dat mijn gevoelens mijn denken sturen.", "tr": "Duygularımın düşüncelerimi yönlendirdiğini fark ederim.", "en": "I notice that my emotions steer my thinking."}], "PSC": [{"nl": "Ik zoek rust door het gedenken van Allah.", "tr": "Allah'ı anarak huzur ararım.", "en": "I seek tranquillity through the remembrance of Allah."}, {"nl": "Het gedenken van Allah helpt mij om mijn gedachten te ordenen.", "tr": "Allah'ı anmak düşüncelerimi düzenlememe yardımcı olur.", "en": "The remembrance of Allah helps me to order my thoughts."}, {"nl": "Wanneer ik stress ervaar, keer ik terug naar het gedenken van Allah.", "tr": "Stres yaşadığımda Allah'ı anmaya dönerim.", "en": "When I feel stressed, I return to the remembrance of Allah."}, {"nl": "Ik vertrouw erop dat Allah mijn situatie in goede banen leidt.", "tr": "Allah'ın durumumu en hayırlı şekilde yönlendireceğine güvenirim.", "en": "I trust that Allah guides my situation for the best."}, {"nl": "Ik voel mij gerustgesteld door mijn vertrouwen in Allah.", "tr": "Allah'a olan güvenim bana huzur verir.", "en": "I feel reassured by my trust in Allah."}, {"nl": "Ik laat mijn zorgen los door ze aan Allah toe te vertrouwen.", "tr": "Endişelerimi Allah'a havale ederek bırakırım.", "en": "I let go of my worries by entrusting them to Allah."}, {"nl": "Ik probeer geduldig te blijven in moeilijke situaties.", "tr": "Zor durumlarda sabırlı kalmaya çalışırım.", "en": "I try to remain patient in difficult situations."}, {"nl": "Mijn geloof helpt mij om met tegenslagen om te gaan.", "tr": "İnancım zorluklarla başa çıkmama yardımcı olur.", "en": "My faith helps me to cope with setbacks."}, {"nl": "Ik reflecteer regelmatig op mijn eigen gedrag en intenties.", "tr": "Kendi davranışlarım ve niyetlerim üzerine düzenli olarak düşünürüm.", "en": "I regularly reflect on my own behaviour and intentions."}, {"nl": "Ik probeer mijn fouten te erkennen en te verbeteren.", "tr": "Hatalarımı kabul edip düzeltmeye çalışırım.", "en": "I try to acknowledge and improve my mistakes."}], "NSC": [{"nl": "Ik heb moeite om mijn situatie aan Allah toe te vertrouwen.", "tr": "Durumumu Allah'a havale etmekte zorlanırım.", "en": "I find it hard to entrust my situation to Allah."}, {"nl": "Ik voel me vaak onzeker over hoe dingen zullen verlopen.", "tr": "İşlerin nasıl gideceği konusunda sık sık tedirgin olurum.", "en": "I often feel uncertain about how things will turn out."}, {"nl": "Ik probeer alles zelf te controleren in plaats van het los te laten.", "tr": "Bırakmak yerine her şeyi kendim kontrol etmeye çalışırım.", "en": "I try to control everything myself instead of letting go."}, {"nl": "Ik merk dat ik vaak niet bewust bezig ben met mijn geloof.", "tr": "İnancımla çoğu zaman bilinçli olarak ilgilenmediğimi fark ederim.", "en": "I notice that I am often not consciously engaged with my faith."}, {"nl": "Ik voel me innerlijk afgeleid en weinig verbonden met Allah.", "tr": "İçsel olarak dağınık ve Allah'a az bağlı hissederim.", "en": "I feel inwardly distracted and little connected to Allah."}, {"nl": "Ik ervaar vaak twijfel die mijn geloof verstoort.", "tr": "Sık sık inancımı sarsan şüpheler yaşarım.", "en": "I often experience doubt that disturbs my faith."}, {"nl": "Mijn gedachten zorgen ervoor dat ik blijf twijfelen aan mijn religieuze handelingen.", "tr": "Düşüncelerim, dini ibadetlerimden sürekli şüphe etmeme yol açar.", "en": "My thoughts make me keep doubting my religious acts."}, {"nl": "Ik merk dat mijn verlangens vaak mijn keuzes bepalen.", "tr": "Arzularımın çoğu zaman seçimlerimi belirlediğini fark ederim.", "en": "I notice that my desires often determine my choices."}, {"nl": "Ik handel soms tegen beter weten in, omdat ik mijn verlangens volg.", "tr": "Bazen arzularıma uyduğum için bile bile yanlış davranırım.", "en": "I sometimes act against my better judgement because I follow my desires."}, {"nl": "Ik vind het moeilijk om mezelf te beheersen wanneer ik ergens naar verlang.", "tr": "Bir şeyi arzuladığımda kendimi kontrol etmekte zorlanırım.", "en": "I find it hard to control myself when I desire something."}], "SHB": [{"nl": "Ik ervaar innerlijke zuiverheid in mijn intenties.", "tr": "Niyetlerimde içsel bir saflık yaşarım.", "en": "I experience inner purity in my intentions."}, {"nl": "Mijn overtuigingen en gedrag voelen voor mij in balans.", "tr": "İnançlarım ve davranışlarım bana dengeli hissettirir.", "en": "My beliefs and behaviour feel balanced to me."}, {"nl": "Ik richt mijn keuzes op wat voor mij spiritueel juist is.", "tr": "Seçimlerimi benim için manevi açıdan doğru olana göre yaparım.", "en": "I base my choices on what is spiritually right for me."}, {"nl": "Ik ervaar innerlijke rust, zelfs in moeilijke situaties.", "tr": "Zor durumlarda bile içsel huzur yaşarım.", "en": "I experience inner peace, even in difficult situations."}, {"nl": "Ik voel mij kalm en stabiel van binnen.", "tr": "İçten içe sakin ve dengeli hissederim.", "en": "I feel calm and stable inside."}, {"nl": "Mijn geloof geeft mij een gevoel van veiligheid.", "tr": "İnancım bana güven duygusu verir.", "en": "My faith gives me a sense of security."}, {"nl": "Ik voel diepe innerlijke tevredenheid.", "tr": "Derin bir içsel hoşnutluk hissederim.", "en": "I feel deep inner contentment."}, {"nl": "Ik ervaar weinig innerlijke twijfel of onrust.", "tr": "Çok az içsel şüphe veya huzursuzluk yaşarım.", "en": "I experience little inner doubt or restlessness."}, {"nl": "Ik voel mij verbonden met Allah in mijn dagelijks leven.", "tr": "Günlük hayatımda Allah'a bağlı hissederim.", "en": "I feel connected to Allah in my daily life."}, {"nl": "Ik ervaar rust in het volgen van mijn geloof.", "tr": "İnancımı takip etmekte huzur bulurum.", "en": "I find peace in following my faith."}]}};
+const LANGS=['nl','tr','en'];
+let LANG='nl';
+function t(k){const e=I18N.ui[k];return e?(e[LANG]||e.nl):k;}
+function fmt(k,o){let s=t(k);for(const p in o)s=s.split('{'+p+'}').join(o[p]);return s;}
+function scaleName(sk){const e=I18N.scaleName[sk];return e?(e[LANG]||e.nl):M.scales[sk].name;}
+function scaleDesc(sk){const e=I18N.scaleDesc[sk];return e?(e[LANG]||e.nl):M.scales[sk].desc;}
+function scaleItem(sk,i){const a=I18N.item[sk],e=a&&a[i];return e?(e[LANG]||e.nl):stripNum(M.scales[sk].items[i]);}
+function likertLabel(i){const e=I18N.likert[i];return e?(e[LANG]||e.nl):M.likert[i];}
+function demoLabel(key){const e=I18N.demoLabel[key];return e?(e[LANG]||e.nl):demoMeta(key).label;}
+function catLabel(v){const e=I18N.cat[v];return e?(e[LANG]||e.nl):v;}
+function applyStatic(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=t(el.getAttribute('data-i18n'));});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{el.innerHTML=t(el.getAttribute('data-i18n-html'));});
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{el.setAttribute('placeholder',t(el.getAttribute('data-i18n-ph')));});
+  document.documentElement.lang=LANG;document.title=t('doc_title');
+}
+function setLang(l){
+  if(!LANGS.includes(l)||l===LANG)return;
+  LANG=l;
+  document.querySelectorAll('#langSw button').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===l));
+  applyStatic();buildTabs();buildFilters();render();
+}
+
 
 /* ---------- helpers ---------- */
 const mean = a => a.reduce((s,x)=>s+x,0)/a.length;
@@ -459,20 +490,29 @@ function getFiltered(){
 
 /* ---------- filter UI ---------- */
 const fg=document.getElementById('filterGroups');
-M.demographics.forEach((d,idx)=>{
-  const cats=categoriesFor(d.key);
-  const det=document.createElement('details');det.className='fgroup';if(idx<3)det.open=true;
-  det.innerHTML=`<summary><span>${d.label}</span>
-    <span style="display:flex;gap:8px;align-items:center"><span class="cnt" data-cnt="${d.key}"></span>
-    <svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></span></summary>`;
-  const opts=document.createElement('div');opts.className='opts';
-  cats.forEach(c=>{
-    const lab=document.createElement('label');lab.className='opt';
-    lab.innerHTML=`<input type="checkbox" value="${c}" data-key="${d.key}"><span>${c}</span><span class="ct" data-ct="${d.key}::${c}"></span>`;
-    opts.appendChild(lab);
+function buildFilters(){
+  const built=fg.dataset.built==='1';
+  const openKeys=new Set([...fg.querySelectorAll('details')].filter(x=>x.open).map(x=>x.dataset.k));
+  fg.innerHTML='';
+  M.demographics.forEach((d,idx)=>{
+    const cats=categoriesFor(d.key);
+    const det=document.createElement('details');det.className='fgroup';det.dataset.k=d.key;
+    det.open = built ? openKeys.has(d.key) : idx<3;
+    det.innerHTML=`<summary><span>${demoLabel(d.key)}</span>
+      <span style="display:flex;gap:8px;align-items:center"><span class="cnt" data-cnt="${d.key}"></span>
+      <svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></span></summary>`;
+    const opts=document.createElement('div');opts.className='opts';
+    cats.forEach(c=>{
+      const lab=document.createElement('label');lab.className='opt';
+      lab.innerHTML=`<input type="checkbox" value="${c}" data-key="${d.key}"><span>${catLabel(c)}</span><span class="ct" data-ct="${d.key}::${c}"></span>`;
+      opts.appendChild(lab);
+    });
+    det.appendChild(opts);fg.appendChild(det);
   });
-  det.appendChild(opts);fg.appendChild(det);
-});
+  fg.dataset.built='1';
+  fg.querySelectorAll('input[type=checkbox]').forEach(cb=>{cb.checked=filters[cb.dataset.key].has(cb.value);});
+}
+buildFilters();
 fg.addEventListener('change',e=>{
   if(e.target.matches('input[type=checkbox]')){
     const k=e.target.dataset.key,v=e.target.value;
@@ -492,18 +532,22 @@ document.getElementById('openFilters').onclick=()=>body.classList.add('filters-o
 document.getElementById('scrim').onclick=()=>body.classList.remove('filters-open');
 
 /* ---------- tabs ---------- */
-const TABS=[['overzicht','Overzicht'],['steekproef','Steekproef'],['schalen','Schalen'],
-  ['correlaties','Correlaties'],['vergelijken','Vergelijken'],['contact','Contact'],['over','Over']];
+const TABS=[['overzicht','tab_overzicht'],['steekproef','tab_steekproef'],['schalen','tab_schalen'],
+  ['correlaties','tab_correlaties'],['vergelijken','tab_vergelijken'],['contact','tab_contact'],['over','tab_over']];
 let activeTab='overzicht';
 const tabBar=document.getElementById('tabBar');
-TABS.forEach(([k,lab])=>{
-  const b=document.createElement('button');b.className='tab'+(k===activeTab?' active':'');b.textContent=lab;
-  b.onclick=()=>{activeTab=k;
-    tabBar.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));b.classList.add('active');
-    document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.dataset.view===k));
-    window.scrollTo({top:0,behavior:'auto'});render();};
-  tabBar.appendChild(b);
-});
+function buildTabs(){
+  tabBar.innerHTML='';
+  TABS.forEach(([k,key])=>{
+    const b=document.createElement('button');b.className='tab'+(k===activeTab?' active':'');b.textContent=t(key);
+    b.onclick=()=>{activeTab=k;
+      tabBar.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+      document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.dataset.view===k));
+      window.scrollTo({top:0,behavior:'auto'});render();};
+    tabBar.appendChild(b);
+  });
+}
+buildTabs();
 
 /* ---------- chart registry ---------- */
 const charts={};
@@ -526,7 +570,7 @@ function updateFilterCounts(f){
   M.demographics.forEach(d=>{
     const sel=filters[d.key].size;
     const el=document.querySelector(`[data-cnt="${d.key}"]`);
-    if(el)el.textContent=sel?`${sel} gekozen`:'';
+    if(el)el.textContent=sel?sel+' '+t('chosen'):'';
     categoriesFor(d.key).forEach(c=>{
       const ct=document.querySelector(`[data-ct="${d.key}::${CSS.escape(c)}"]`);
       if(ct)ct.textContent=f.filter(r=>r[d.key]===c).length;
@@ -546,12 +590,12 @@ function renderOverview(f){
     const c=SC_COLOR[sk];
     const card=document.createElement('div');card.className='kpi';card.style.setProperty('--c',c);
     card.innerHTML=`
-      <div class="nm">${sm.name}</div>
+      <div class="nm">${scaleName(sk)}</div>
       <div class="val">${isNaN(m)?'—':m.toFixed(2)}<small> / 5</small></div>
       <div class="meta">SD ${isNaN(s)?'—':s.toFixed(2)} · n ${f.length}</div>
       <div class="track"><div class="dot" style="left:${pos}%"></div></div>
       <div class="track-lbl scale-lbl"><span>1</span><span>3</span><span>5</span></div>
-      <div class="alpha-pill">α ${isNaN(a)?'—':a.toFixed(2)}<span style="color:var(--muted);font-weight:400">betrouwbaarheid</span></div>`;
+      <div class="alpha-pill">α ${isNaN(a)?'—':a.toFixed(2)}<span style="color:var(--muted);font-weight:400">${t('reliability')}</span></div>`;
     wrap.appendChild(card);
   });
   // quick stats
@@ -559,21 +603,21 @@ function renderOverview(f){
   const total=f.length||1;
   const pct=(key,val)=>Math.round(f.filter(r=>r[key]===val).length/total*100);
   const topCat=key=>{const cats=categoriesFor(key);let best=cats[0],bc=-1;
-    cats.forEach(c=>{const n=f.filter(r=>r[key]===c).length;if(n>bc){bc=n;best=c;}});return best+' ('+Math.round(bc/total*100)+'%)';};
+    cats.forEach(c=>{const n=f.filter(r=>r[key]===c).length;if(n>bc){bc=n;best=c;}});return catLabel(best)+' ('+Math.round(bc/total*100)+'%)';};
   const stats=[
-    ['Respondenten',f.length],
-    ['Vrouw',pct('geslacht','Vrouw')+'%'],
-    ['Dagelijkse praktijk',pct('praktijk','Dagelijks')+'%'],
-    ['Ooit psych. klachten',pct('klachten','Ja')+'%'],
-    ['Grootste leeftijdsgroep',topCat('leeftijd')],
-    ['Grootste herkomst',topCat('etniciteit')],
+    [t('stat_resp'),f.length],
+    [t('stat_female'),pct('geslacht','Vrouw')+'%'],
+    [t('stat_daily'),pct('praktijk','Dagelijks')+'%'],
+    [t('stat_complaints'),pct('klachten','Ja')+'%'],
+    [t('stat_agegroup'),topCat('leeftijd')],
+    [t('stat_origin'),topCat('etniciteit')],
   ];
   stats.forEach(([l,v])=>{const d=document.createElement('div');d.className='stat';
     d.innerHTML=`<div class="v">${v}</div><div class="l">${l}</div>`;qs.appendChild(d);});
   const anyFilter=M.demographics.some(d=>filters[d.key].size>0);
   document.getElementById('liveNote').textContent= anyFilter
-    ? `Je bekijkt een selectie van ${f.length} van de ${M.n} respondenten. Wis de filters om de volledige groep te zien.`
-    : `Je bekijkt alle ${M.n} geldige respondenten. Eén respondent gaf geen toestemming en is buiten beschouwing gelaten.`;
+    ? fmt('livenote_sel',{n:f.length,N:M.n})
+    : fmt('livenote_all',{n:M.n});
 }
 
 /* ---------- SAMPLE / demographics ---------- */
@@ -583,10 +627,10 @@ function renderSample(f){
     const cats=categoriesFor(d.key);
     const counts=cats.map(c=>f.filter(r=>r[d.key]===c).length);
     const cell=document.createElement('div');cell.className='scale-block';
-    cell.innerHTML=`<div class="hd"><h3>${d.label}</h3></div>
+    cell.innerHTML=`<div class="hd"><h3>${demoLabel(d.key)}</h3></div>
       <div class="bd"><div class="chart-wrap" style="height:${Math.max(120,cats.length*34+40)}px"><canvas id="demo_${d.key}"></canvas></div></div>`;
     grid.appendChild(cell);
-    mkChart('demo_'+d.key,{type:'bar',data:{labels:cats,
+    mkChart('demo_'+d.key,{type:'bar',data:{labels:cats.map(catLabel),
       datasets:[{data:counts,backgroundColor:SC_COLOR[SCALES[0]]==='#C2603F'?'#7C9B94':'#7C9B94',
         borderRadius:5,barThickness:'flex',maxBarThickness:26}]},
       options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
@@ -600,13 +644,13 @@ function renderSample(f){
 /* ---------- SCALES item distributions ---------- */
 function renderScales(f){
   const key=document.getElementById('likertKey');
-  key.innerHTML=LIK.map((l,i)=>`<span><i style="background:${LIK_COLOR[i]}"></i>${l}</span>`).join('');
+  key.innerHTML=LIK.map((l,i)=>`<span><i style="background:${LIK_COLOR[i]}"></i>${likertLabel(i)}</span>`).join('');
   const wrap=document.getElementById('scaleBlocks');wrap.innerHTML='';
   SCALES.forEach(sk=>{
     const sm=M.scales[sk];
     const scores=f.map(r=>scaleScore(r,sk));
     const m=f.length?mean(scores):NaN,s=f.length?sd(scores):NaN;
-    const labels=[],datasets=LIK.map((l,i)=>({label:l,data:[],backgroundColor:LIK_COLOR[i],
+    const labels=[],datasets=LIK.map((l,i)=>({label:likertLabel(i),data:[],backgroundColor:LIK_COLOR[i],
       borderWidth:0,stack:'s'}));
     const itemMeans=[];
     for(let it=1;it<=10;it++){
@@ -614,21 +658,21 @@ function renderScales(f){
       itemMeans.push(vals.length?mean(vals):NaN);
       const counts=[0,0,0,0,0];vals.forEach(v=>counts[v-1]++);
       const tot=vals.length||1;
-      labels.push('Item '+it);
+      labels.push(t('item_word')+' '+it);
       counts.forEach((c,i)=>datasets[i].data.push(c/tot*100));
     }
     const block=document.createElement('div');block.className='scale-block';
     block.innerHTML=`<div class="hd">
         <div class="swatch" style="background:${SC_COLOR[sk]}"></div>
-        <div><h3>${sm.name}</h3><p>${sm.desc}</p></div>
+        <div><h3>${scaleName(sk)}</h3><p>${scaleDesc(sk)}</p></div>
         <div class="figs"><div class="m">${isNaN(m)?'—':m.toFixed(2)}</div>
-          <div class="s">gemiddeld · SD ${isNaN(s)?'—':s.toFixed(2)} · α ${sm.alpha.toFixed(2)}</div></div>
+          <div class="s">${t('avg')} · SD ${isNaN(s)?'—':s.toFixed(2)} · α ${sm.alpha.toFixed(2)}</div></div>
       </div>
       <div class="bd">
         <div class="chart-wrap" style="height:330px"><canvas id="lik_${sk}"></canvas></div>
-        <details style="margin-top:10px"><summary style="cursor:pointer;font-size:12px;color:var(--gold);font-weight:600">Toon de volledige stellingen</summary>
+        <details style="margin-top:10px"><summary style="cursor:pointer;font-size:12px;color:var(--gold);font-weight:600">${t('show_items')}</summary>
         <ol style="font-size:12px;color:var(--ink-soft);margin:10px 0 0;padding-left:22px">
-          ${sm.items.map((t,i)=>`<li style="margin:3px 0">${stripNum(t)} <span class="mono" style="color:var(--muted)">(gem. ${isNaN(itemMeans[i])?'—':itemMeans[i].toFixed(2)})</span></li>`).join('')}
+          ${sm.items.map((_it,i)=>`<li style="margin:3px 0">${scaleItem(sk,i)} <span class="mono" style="color:var(--muted)">(${t('avg_short')} ${isNaN(itemMeans[i])?'—':itemMeans[i].toFixed(2)})</span></li>`).join('')}
         </ol></details>
       </div>`;
     wrap.appendChild(block);
@@ -660,7 +704,7 @@ function renderCorr(f){
   grid.appendChild(cell('hcorner',''));
   SCALES.forEach(s=>grid.appendChild(cell('htop',s)));
   for(let i=0;i<n;i++){
-    grid.appendChild(cell('hlabel',M.scales[SCALES[i]].name));
+    grid.appendChild(cell('hlabel',scaleName(SCALES[i])));
     for(let j=0;j<n;j++){
       const v=i===j?1:pearson(mat[i],mat[j]);
       const c=document.createElement('div');c.className='hcell';
@@ -678,10 +722,12 @@ function renderCorr(f){
 let cmpInit=false;
 function renderCompare(f){
   const demoSel=document.getElementById('cmpDemo'),scSel=document.getElementById('cmpScale');
+  const prevD=cmpInit?demoSel.value:'leeftijd', prevS=cmpInit?scSel.value:'SHB';
+  demoSel.innerHTML='';scSel.innerHTML='';
+  M.demographics.forEach(d=>demoSel.add(new Option(demoLabel(d.key),d.key)));
+  SCALES.forEach(s=>scSel.add(new Option(scaleName(s),s)));
+  demoSel.value=prevD;scSel.value=prevS;
   if(!cmpInit){
-    M.demographics.forEach(d=>demoSel.add(new Option(d.label,d.key)));
-    SCALES.forEach(s=>scSel.add(new Option(M.scales[s].name,s)));
-    demoSel.value='leeftijd';scSel.value='SHB';
     demoSel.onchange=()=>renderCompare(getFiltered());
     scSel.onchange=()=>renderCompare(getFiltered());
     cmpInit=true;
@@ -704,23 +750,23 @@ function renderCompare(f){
       ctx.moveTo(cx-5,yTop);ctx.lineTo(cx+5,yTop);ctx.moveTo(cx-5,yBot);ctx.lineTo(cx+5,yBot);ctx.stroke();});
     ctx.restore();}};
   mkChart('cmpChart',{type:'bar',
-    data:{labels:rows.map(r=>r.c+(r.n<10?' *':'')),
+    data:{labels:rows.map(r=>catLabel(r.c)+(r.n<10?' *':'')),
       datasets:[{data:rows.map(r=>r.m),backgroundColor:rows.map(r=>r.n<10?c+'88':c),
         borderRadius:6,maxBarThickness:64}]},
     options:{responsive:true,maintainAspectRatio:false,
       plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{
         const r=rows[ctx.dataIndex];return ` gem. ${r.m.toFixed(2)} · 95%BI ±${r.ci.toFixed(2)} · n=${r.n}`;}}}},
-      scales:{y:{min:1,max:5,grid:{color:'#EAE7DC'},title:{display:true,text:M.scales[sk].name+' (1–5)'}},
+      scales:{y:{min:1,max:5,grid:{color:'#EAE7DC'},title:{display:true,text:scaleName(sk)+' (1–5)'}},
         x:{grid:{display:false},ticks:{font:{size:11.5}}}}},
     plugins:[ciPlugin]});
   // table
   const tw=document.getElementById('cmpTableWrap');
-  tw.innerHTML=`<table class="gt"><thead><tr><th>Groep</th><th style="text-align:right">n</th>
-    <th style="text-align:right">Gemiddelde</th><th style="text-align:right">95%-BI</th></tr></thead><tbody>
-    ${rows.map(r=>`<tr class="${r.n<10?'small':''}"><td>${r.c}${r.n<10?' *':''}</td>
+  tw.innerHTML=`<table class="gt"><thead><tr><th>${t('cmp_th_group')}</th><th style="text-align:right">n</th>
+    <th style="text-align:right">${t('cmp_th_mean')}</th><th style="text-align:right">${t('cmp_th_ci')}</th></tr></thead><tbody>
+    ${rows.map(r=>`<tr class="${r.n<10?'small':''}"><td>${catLabel(r.c)}${r.n<10?' *':''}</td>
       <td class="num">${r.n}</td><td class="num">${r.m.toFixed(2)}</td>
       <td class="num">${(r.m-r.ci).toFixed(2)} – ${(r.m+r.ci).toFixed(2)}</td></tr>`).join('')}
-    </tbody></table>${rows.some(r=>r.n<10)?'<div style="font-size:11.5px;color:var(--muted);margin-top:8px">* groep met minder dan 10 respondenten</div>':''}`;
+    </tbody></table>${rows.some(r=>r.n<10)?'<div style="font-size:11.5px;color:var(--muted);margin-top:8px">'+t('cmp_small')+'</div>':''}`;
 }
 
 /* ---------- ABOUT ---------- */
@@ -728,50 +774,40 @@ function renderAbout(){
   const el=document.getElementById('aboutBody');
   el.innerHTML=`
   <div class="colofon">
-    <div><span class="ck">Titel</span><span class="cv">Psycho-spirituele processen bij Nederlandse moslims</span></div>
-    <div><span class="ck">Ondertitel</span><span class="cv">Een kwantitatief onderzoek naar hart-gebaseerde cognitieve ontregeling, spirituele coping en spirituele hartbalans vanuit het perspectief van Ibn Qayyim al-Jawziyya</span></div>
-    <div><span class="ck">Auteur</span><span class="cv">Havva Yıldız — BA Islamitische Theologie</span></div>
-    <div><span class="ck">Opleiding</span><span class="cv">HBO Postinitiële Master Islamitische Geestelijke Verzorging</span></div>
-    <div><span class="ck">Instelling</span><span class="cv">Islamic University of Applied Sciences Rotterdam (IUASR)</span></div>
-    <div><span class="ck">Graad</span><span class="cv">Ter verkrijging van de graad doctorandus (drs.)</span></div>
-    <div><span class="ck">Studentnummer</span><span class="cv">203774</span></div>
-    <div><span class="ck">Studiejaar</span><span class="cv">2025–2026</span></div>
+    <div><span class="ck">${t('c_titel')}</span><span class="cv">${t('hero_title')}</span></div>
+    <div><span class="ck">${t('c_ondertitel')}</span><span class="cv">${t('hero_sub')}</span></div>
+    <div><span class="ck">${t('c_auteur')}</span><span class="cv">${t('v_auteur')}</span></div>
+    <div><span class="ck">${t('c_opleiding')}</span><span class="cv">${t('v_opleiding')}</span></div>
+    <div><span class="ck">${t('c_instelling')}</span><span class="cv">Islamic University of Applied Sciences Rotterdam (IUASR)</span></div>
+    <div><span class="ck">${t('c_graad')}</span><span class="cv">${t('v_graad')}</span></div>
+    <div><span class="ck">${t('c_studentnr')}</span><span class="cv">203774</span></div>
+    <div><span class="ck">${t('c_studiejaar')}</span><span class="cv">2025–2026</span></div>
   </div>
-  <h3>Suggestie voor verwijzing</h3>
-  <div class="cite">Yıldız, H. (2026). <i>Psycho-spirituele processen bij Nederlandse moslims:
-  Een kwantitatief onderzoek naar hart-gebaseerde cognitieve ontregeling, spirituele coping en spirituele hartbalans
-  vanuit het perspectief van Ibn Qayyim al-Jawziyya</i>
-  [Masterthesis, Islamic University of Applied Sciences Rotterdam].</div>
+  <h3>${t('cite_head')}</h3>
+  <div class="cite">Yıldız, H. (2026). <i>${t('hero_title')}: ${t('hero_sub')}</i> ${t('cite_tail')}</div>
 
-  <p style="margin-top:18px">Dit dashboard maakt de resultaten van het scriptieonderzoek inzichtelijk voor de
-  respondenten zelf. Alle weergaven zijn gebaseerd op geanonimiseerde antwoorden; er worden geen persoonsgegevens
-  of open tekstantwoorden getoond.</p>
+  <p style="margin-top:18px">${t('ab_intro')}</p>
 
-  <h3>De steekproef</h3>
-  <p>In totaal vulden ${M.n_raw} mensen de vragenlijst in. Eén respondent gaf geen toestemming voor deelname en
-  is verwijderd, waardoor <b>${M.n} geldige respondenten</b> overblijven. Deze hadden allemaal volledige antwoorden
-  op de stellingen.</p>
+  <h3>${t('ab_h_sample')}</h3>
+  <p>${fmt('ab_p_sample',{raw:M.n_raw,n:M.n})}</p>
 
-  <h3>De vier schalen</h3>
+  <h3>${t('ab_h_scales')}</h3>
   <ul>
     ${SCALES.map(s=>`<li><span class="tag" style="background:${SC_COLOR[s]}">${s}</span>
-      <b>${M.scales[s].name}</b> — ${M.scales[s].desc} <span class="mono" style="color:var(--muted)">(α = ${M.scales[s].alpha.toFixed(2)})</span></li>`).join('')}
+      <b>${scaleName(s)}</b> — ${scaleDesc(s)} <span class="mono" style="color:var(--muted)">(α = ${M.scales[s].alpha.toFixed(2)})</span></li>`).join('')}
   </ul>
 
-  <h3>Hoe de scores zijn berekend</h3>
-  <p>Elke stelling is beantwoord op een 5-punts Likertschaal: 1 = helemaal mee oneens tot en met 5 = helemaal mee eens.
-  Een schaalscore is het gemiddelde van de tien bijbehorende items en ligt dus altijd tussen 1 en 5. Bij filteren en
-  vergelijken worden alle gemiddelden, spreidingen en correlaties opnieuw berekend over precies de geselecteerde groep.</p>
+  <h3>${t('ab_h_scores')}</h3>
+  <p>${t('ab_p_scores')}</p>
 
-  <h3>Betrouwbaarheid (Cronbach's α)</h3>
-  <p>Cronbach's alpha geeft aan hoe consistent de tien items van een schaal samen één begrip meten. Een waarde
-  boven 0,80 geldt als goed. Alle vier de schalen liggen hierboven, wat betekent dat de schalen intern consistent zijn.</p>
+  <h3>${t('ab_h_rel')}</h3>
+  <p>${t('ab_p_rel')}</p>
 
-  <h3>Belangrijk om te weten</h3>
+  <h3>${t('ab_h_imp')}</h3>
   <ul>
-    <li>Correlaties beschrijven samenhang, geen oorzaak-gevolg.</li>
-    <li>Gemiddelden van kleine groepen (minder dan 10 respondenten) zijn minder stabiel en in de vergelijking gemarkeerd.</li>
-    <li>De cijfers zijn beschrijvend; voor toetsende conclusies verwijzen we naar de scriptie zelf.</li>
+    <li>${t('ab_li1')}</li>
+    <li>${t('ab_li2')}</li>
+    <li>${t('ab_li3')}</li>
   </ul>`;
 }
 
@@ -789,11 +825,11 @@ const FORM_ENDPOINT = "https://formsubmit.co/ajax/havvayildiz07@outlook.com";
     const name=g('cName'),email=g('cEmail'),phone=g('cPhone'),topic=g('cTopic'),msg=g('cMsg');
     out.className='form-msg';
     if(g('cHoney')){return;} // spam-bot ingevuld honeypot
-    if(!name){out.classList.add('err');out.textContent='Vul je naam in.';return;}
-    if(!email && !phone){out.classList.add('err');out.textContent='Vul een e-mailadres of telefoonnummer in.';return;}
-    if(email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){out.classList.add('err');out.textContent='Controleer je e-mailadres.';return;}
-    const subject=topic?`Onderzoek psycho-spirituele processen — ${topic}`:'Interesse in onderzoek psycho-spirituele processen';
-    btn.disabled=true;out.textContent='Versturen…';
+    if(!name){out.classList.add('err');out.textContent=t('msg_name');return;}
+    if(!email && !phone){out.classList.add('err');out.textContent=t('msg_contact');return;}
+    if(email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){out.classList.add('err');out.textContent=t('msg_emailbad');return;}
+    const subject=topic?(t('subj_base')+' — '+topic):t('subj_default');
+    btn.disabled=true;out.textContent=t('msg_sending');
     try{
       const fd=new FormData();
       fd.append('Naam',name);
@@ -808,17 +844,19 @@ const FORM_ENDPOINT = "https://formsubmit.co/ajax/havvayildiz07@outlook.com";
       const data=await res.json().catch(()=>({}));
       if(res.ok && (data.success===undefined || String(data.success)==='true')){
         out.classList.add('ok');
-        out.textContent='Bedankt! Je bericht is verstuurd. We nemen contact met je op.';
+        out.textContent=t('msg_ok');
         ['cName','cEmail','cPhone','cTopic','cMsg'].forEach(id=>document.getElementById(id).value='');
       }else{throw new Error('mislukt');}
     }catch(e){
       out.classList.add('err');
-      out.textContent='Versturen lukte niet. Probeer het later opnieuw of mail naar havvayildiz07@outlook.com.';
+      out.textContent=t('msg_fail');
     }finally{btn.disabled=false;}
   });
 })();
 
 /* init */
+document.getElementById('langSw').addEventListener('click',e=>{const b=e.target.closest('button[data-lang]');if(b)setLang(b.getAttribute('data-lang'));});
+applyStatic();
 render();
 })();
 </script>

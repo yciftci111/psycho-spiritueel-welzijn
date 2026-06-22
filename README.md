@@ -78,6 +78,12 @@ const FORM_ENDPOINT = "https://formsubmit.co/ajax/havvayildiz07@outlook.com";
 - **Adres verbergen uit de paginabron:** nadat FormSubmit is geactiveerd, geeft de dienst een persoonlijk token. Vervang de URL dan door `https://formsubmit.co/ajax/JOUW-TOKEN`, zodat het e-mailadres niet in de broncode staat (beter tegen spam).
 
 
+## Taalkeuze (Nederlands · Turks · Engels)
+
+Rechtsboven in het dashboard staat een taalschakelaar (**NL · TR · EN**). Nederlands is de standaardtaal; met één klik schakelt de volledige interface over naar Turks of Engels — inclusief de menu's, schaalnamen, alle stellingen, de filters en categorieën, het contactformulier en de toelichting. Gekozen filters en het actieve tabblad blijven daarbij behouden.
+
+De vertalingen zitten volledig in `index.html` (er zijn geen extra bestanden nodig). Wil je een term aanpassen, zoek dan in het bestand naar `const I18N` en pas de betreffende waarde aan onder `nl`, `tr` of `en`.
+
 ## Bestanden
 
 ```
